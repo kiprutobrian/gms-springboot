@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+<div th:replace="fragments/header-css :: header-css"></div>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <th:block th:replace="fragments/leftnav :: leftnav"></th:block>
+
+            <main class="col">
+                <div class="row">
+                    <th:block th:replace="fragments/header :: header"></th:block>
+                </div>
+                <div class="row">
+                    <div class="container-gms">
+                        <div class="table-top">
+                            <!-- <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb pl-0">
+                                    <li class="breadcrumb-item">
+                                        <a class="d-flex" href="#">
+                                            Home
+                                            <span class="material-icons">
+                                                keyboard_arrow_right
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="breadcrumb-item active" aria-current="page">Drive Analysis
+                                    </li>
+                                </ol>
+                            </nav> -->
+                            <h2 class="h2 pl-0"> Drive Analysis</h2>
+                        </div>
+
+                        <div class="dropdown mb-5">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Domain Drive Setting's
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="/AllFilesByOrg">Files & Folders</a>
+                                <a class="dropdown-item" href="/AllsharedFilesByOrg">Shared Outside</a>
+                                <a class="dropdown-item" id="updateSelected3">Shared Within</a>
+                                <a class="dropdown-item">Drive Activity</a>
+                            </div>
+                        </div>
+
+                        <div class="row card-gms mT-30 mB-30">
+                            <div class="col-md-12">
+                                <table id="dataTable" class="table table-striped table-bordered" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 5px;"></th>
+                                            <th style="display: none;">ID</th>
+                                            <th>PrimaryEmail</th>
+                                            <th>Name</th>
+                                            <th>Org Unit</th>
+                                            <th>Suspended</th>
+                                            <th style="width: 30px; display: none;">Usage</th>
+                                            <th style="width: 30px;">Files&Folders</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="User : ${users}">
+                                            <td style="width: 5px;"></td>
+                                            <td th:text="${User.getId()}" style="display: none;"></td>
+                                            <td th:text="${User.getPrimaryEmail()}"></td>
+                                            <td th:text="${User.getName().getFullName()}"></td>
+                                            <td th:text="${User.getOrgUnitPath()}"></td>
+                                            <td th:text="${User.getSuspended()}"></td>
+                                            <td style="width: 30px; display: none;"><a class="material-icons"
+                                                    th:href="@{/DriveStatisticalAnalysis/} + ${User.getPrimaryEmail()}+@{/}">remove_red_eye</a>
+                                            </td>
+                                            <td style="width: 30px;"><a class="material-icons"
+                                                    th:href="@{/DrivePermissions/} + ${User.getPrimaryEmail()}+@{/}">folder_open</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th style="width: 5px;"></th>
+                                            <th style="display: none;">ID</th>
+                                            <th>PrimaryEmail</th>
+                                            <th>Name</th>
+                                            <th>Org Unit</th>
+                                            <th>Suspended</th>
+                                            <th style="width: 30px; display: none;">Usage</th>
+                                            <th style="width: 30px;">Files&Folders</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!--         <th:block th:replace="fragments/footer :: footer"></th:block> -->
+    <th:block th:include="fragments/js-content :: js-content"></th:block>
+</body>
+
+</html>

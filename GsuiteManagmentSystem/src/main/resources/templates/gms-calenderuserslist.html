@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+    <div th:replace="fragments/header-css :: header-css"></div>
+
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <th:block th:replace="fragments/leftnav :: leftnav"></th:block>
+                <main class="col">
+                    <div class="row">
+                        <th:block th:replace="fragments/header :: header"></th:block>
+                    </div>
+                    <div class="row">
+                        <div class="container-gms">
+                            <div class="row">
+                                <div class="table-top">
+                                    <!-- <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item">
+                                                <a class="d-flex" href="#">
+                                                    Home
+                                                    <span
+                                                        class="material-icons">
+                                                        keyboard_arrow_right
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li class="breadcrumb-item active"
+                                                aria-current="page">Calender
+                                                Settings</li>
+                                        </ol>
+                                    </nav> -->
+                                    <h2 class="h2"> Calendar Appointments</h2>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="card-gms">
+                                        <div class="row">
+                                            <div class="col-sm-12 table-responsive">
+                                                <table id="dataTable"
+                                                    class="table table-striped
+                                                    table-bordered"
+                                                    style="width:100%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th></th>
+                                                            <th style="display:
+                                                                none;">ID</th>
+                                                            <th>Name</th>
+                                                            <th>Primary Email</th>
+                                                            <th>Org Unit</th>
+                                                            <th>Appointment
+                                                                Active</th>
+                                                            <th>Last Update</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr
+                                                            th:each="CalenderAppointment
+                                                            : ${users}">
+                                                            <td></td>
+                                                            <td
+                                                                th:text="${CalenderAppointment.getId()}"
+                                                                style="display:
+                                                                none;"></td>
+                                                            <td
+                                                                th:text="${CalenderAppointment.getName()}"></td>
+                                                            <td
+                                                                th:text="${CalenderAppointment.getEmail()}"></td>
+                                                            <td
+                                                                th:text="${CalenderAppointment.getOrgUnit()}"></td>
+                                                            <td
+                                                                th:text="${CalenderAppointment.isActive()}"></td>
+                                                            <td
+                                                                th:text="${CalenderAppointment.getUpdateDate()}"></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+        <!--         <th:block th:replace="fragments/footer :: footer"></th:block> -->
+        <th:block th:include="fragments/js-content :: js-content"></th:block>
+    </body>
+
+</html>

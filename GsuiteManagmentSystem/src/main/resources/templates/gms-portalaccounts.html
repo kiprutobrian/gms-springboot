@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+<div th:replace="fragments/header-css :: header-css"></div>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <th:block th:replace="fragments/leftnav :: leftnav"></th:block>
+
+            <main class="col">
+                <div class="row">
+                    <th:block th:replace="fragments/header :: header"></th:block>
+                </div>
+
+                <div class="row">
+                    <div class="container-gms">
+
+                        <div class="table-top">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb pl-0">
+                                    <li class="breadcrumb-item">
+                                        <a class="d-flex" href="#">
+                                            Home
+                                            <span class="material-icons">
+                                                keyboard_arrow_right
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="breadcrumb-item active" aria-current="page">GMS Accounts
+                                    </li>
+                                </ol>
+                            </nav>
+                            <h2 class="h2 pl-0">GMS Setting</h2>
+                        </div>
+
+
+                        <div class="gms-accounts-page">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="shadow-modal p-3 mb-5 bg-white">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <div class="row">
+                                                        <div class="col-md-4 mb-3">
+                                                            <div class="input-group mb-3">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text material-icons">
+                                                                        search
+                                                                    </span>
+                                                                </div>
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="Find user" aria-label="Find user"
+                                                                    aria-describedby="basic-addon1">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <th scope="col">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input"
+                                                                id="customCheck1">
+                                                            <label class="custom-control-label">
+                                                                <span class="material-icons">
+                                                                    arrow_drop_down
+                                                                </span>
+                                                            </label>
+                                                        </div>
+                                                    </th>
+                                                    <th scope="col">ID</th>
+                                                    <th scope="col">Name</th>
+                                                    <th scope="col">Email</th>
+                                                    <th scope="col">Has Access</th>
+                                                    <th scope="col">Last Login Time</th>
+                                                    <th scope="col">Settings</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr th:each="UserApp : ${users}">
+                                                    <th scope="row">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input"
+                                                                id="customCheck1">
+                                                            <label class="custom-control-label">
+                                                            </label>
+                                                        </div>
+                                                    </th>
+                                                    <td>
+                                                        <span th:text="${UserApp.getId()}"></span>
+                                                    </td>
+                                                    <td>
+
+                                                        <span th:text="${UserApp.getUsername()}"></span>
+                                                    </td>
+                                                    <td>
+                                                        <span th:text="${UserApp.getEmail()}"></span>
+                                                    </td>
+                                                    <td>
+                                                        <span th:text="${UserApp.isActive()}"></span>
+                                                        <div class="pill pill-danger">
+                                                            <h4 class="text-red">No Access</h4>
+                                                        </div>
+                                                        <div class="pill pill-success">
+                                                            <h4 class="text-green">Has Access</h4>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <span th:text="${UserApp.getUpdatedAt()}"></span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="material-icons">
+                                                            settings
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <!-- END: Page Main-->
+            </main>
+
+        </div>
+    </div>
+
+
+
+    <!--         <th:block th:replace="fragments/footer :: footer"></th:block> -->
+    <th:block th:include="fragments/js-content :: js-content"></th:block>
+</body>
+
+</html>

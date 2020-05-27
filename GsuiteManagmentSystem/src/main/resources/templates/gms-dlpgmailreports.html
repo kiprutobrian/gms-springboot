@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+<div th:replace="fragments/header-css :: header-css"></div>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <th:block th:replace="fragments/leftnav :: leftnav"></th:block>
+
+            <main class="col">
+                <div class="row">
+                    <th:block th:replace="fragments/header :: header"></th:block>
+                </div>
+                <div class="row">
+
+
+                    <div class="container-gms">
+                        <div class="table-top">
+                            <!-- <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb pl-0">
+                                    <li class="breadcrumb-item">
+                                        <a class="d-flex" href="#">
+                                            Home
+                                            <span class="material-icons">
+                                                keyboard_arrow_right
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="breadcrumb-item active" aria-current="page">Email Report
+                                    </li>
+                                </ol>
+                            </nav> -->
+                            <h2 class="h2 pl-0"> Email Report</h2>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card gms-card">
+                                    <div style="display: none;">
+                                        <input type="text" id="authuser_company_id"
+                                            th:value="${authUser.getCompany().getCompanyId()}">
+                                    </div>
+
+                                    <div class="row ">
+                                        <div class="card-body">
+                                            <div class="form-row">
+                                                <div class="form-group col-md-12">
+                                                    <input class="form-control" type="text"
+                                                        placeholder="KeyWord To Search ..." id="keyword">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <input class="form-control datepicker" id="fromdate" type="text"
+                                                        placeholder="From Date">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <input class="form-control datepicker" id="todate" type="text"
+                                                        placeholder="To Date">
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <button class="btn modal-trigger btn-lg btn-success"
+                                                        id="filterbt">Search</button>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!--         <th:block th:replace="fragments/footer :: footer"></th:block> -->
+    <th:block th:include="fragments/js-content :: js-content"></th:block>
+</body>
+
+</html>

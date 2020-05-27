@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+<div th:replace="fragments/header-css :: header-css"></div>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <th:block th:replace="fragments/leftnav :: leftnav"></th:block>
+
+            <main class="col">
+                <div class="row">
+                    <th:block th:replace="fragments/header :: header"></th:block>
+                </div>
+                <div class="row">
+
+                    <div class="container-gms">
+
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="table-top">
+                                    <!-- <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb pl-0">
+                                            <li class="breadcrumb-item">
+                                                <a class="d-flex" href="#">
+                                                    Home
+                                                    <span class="material-icons">
+                                                        keyboard_arrow_right
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li class="breadcrumb-item active" aria-current="page">Drive Report
+                                            </li>
+                                        </ol>
+                                    </nav> -->
+                                    <h2 class="h2 pl-0">Drive Report</h2>
+                                </div>
+
+
+                                <div class="card gms-card">
+
+
+                                    <div style="display: none;">
+                                        <input type="text" id="authuser_company_id"
+                                            th:value="${authUser.getCompany().getCompanyId()}">
+                                    </div>
+                                    <div id="progress" style="display: none;">
+                                        <div class="progress">
+                                            <div class="indeterminate"></div>
+                                        </div>
+                                    </div>
+                                    <!-- <div id="alerts"></div>
+                                    <div class="card-alert card green right" id="onsuccess"
+                                        style="display: none; width: 40%;">
+                                        <div class="card-content white-text">
+                                            <span class="card-title white-text darken-1"> <i
+                                                    class="material-icons">notifications</i>DLP Report
+                                                Download
+                                            </span>
+                                            <div id="message"></div>
+                                        </div>
+                                        <button type="button" class="close white-text" data-dismiss="alert"
+                                            aria-label="Close" id="cancel">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                    </div> -->
+
+                                    <div class="col-md-4" style="display: none;">
+                                        <div class="row ">
+                                            <div class="card-body">
+                                                <div class="col-md-6">
+                                                    <input id="fromdate" type="text" class="datepicker"
+                                                        placeholder="From Date">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input id="todate" type="text" class="datepicker"
+                                                        placeholder="To Date">
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <button class="btn modal-trigger mb-2 mr-1 right" id="filterbt"
+                                                        style="background-color: #4CAF50; height: 50%; width: 50%; margin-top: 5px; font-size: 10px;">Search</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div id="dataprogress" style="display: none;">
+                                            <div class="progress">
+                                                <div class="indeterminate"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="card-body m-0">
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-12">
+
+                                                        <label class="label">From Date</label>
+                                                        <select id="type_event" class="form-control browser-default">
+                                                            <option value="download">Download</option>
+                                                            <option value="view">View</option>
+                                                            <option value="edit">Edit</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label class="m-0 label">From Date</label>
+                                                        <input class="form-control" type=" date" id="startdate">
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label class="m-0 label">To Date</label>
+                                                        <input class="form-control" type=" date" id="enddate">
+                                                    </div>
+
+                                                    <div class="col-md-12 mb-1">
+                                                        <div class="buttons">
+                                                            <button class=" btn btn-lg btn-success"
+                                                                id="filteredReport">Get
+                                                                Report</button>
+                                                            <button class="btn btn-lg btn-success"
+                                                                id="createReport">Download Get
+                                                                Report</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!--         <th:block th:replace="fragments/footer :: footer"></th:block> -->
+    <th:block th:include="fragments/js-content :: js-content"></th:block>
+</body>
+
+</html>

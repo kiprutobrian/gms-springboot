@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<!--
+Template Name: Materialize - Material Design Admin Template
+Author: PixInvent
+Website: http://www.pixinvent.com/
+Contact: hello@pixinvent.com
+Follow: www.twitter.com/pixinvents
+Like: www.facebook.com/pixinvents
+Purchase: https://1.envato.market/materialize_admin
+Renew Support: https://1.envato.market/materialize_admin
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+
+-->
+<html class="loading" lang="en" data-textdirection="ltr">
+<!-- BEGIN: Head-->
+
+<!-- Mirrored from pixinvent.com/materialize-material-design-admin-template/html/ltr/vertical-modern-menu-template/form-elements.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Sep 2019 06:15:57 GMT -->
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+<meta name="description"
+	content="Materialize is a Material Design Admin Template,It's modern, responsive and based on Material Design by Google.">
+<meta name="keywords"
+	content="materialize, admin template, dashboard template, flat admin template, responsive admin template, eCommerce dashboard, analytic dashboard">
+<meta name="author" content="ThemeSelect">
+<meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}" />
+
+<title>GMS</title>
+
+<link rel="apple-touch-icon"
+	href="/app-assets/images/favicon/apple-touch-icon-152x152.png">
+<link rel="shortcut icon" type="image/x-icon"
+	href="/app-assets/images/favicon/favicon-32x32.png">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<!-- BEGIN: VENDOR CSS-->
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/vendors/vendors.min.css">
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/vendors/flag-icon/css/flag-icon.min.css">
+<link rel="stylesheet"
+	href="/app-assets/vendors/noUiSlider/nouislider.min.css"
+	type="text/css">
+<!-- END: VENDOR CSS-->
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/vendors/sweetalert/sweetalert.css">
+<!-- BEGIN: Page Level CSS-->
+
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/vendors/data-tables/extensions/responsive/css/responsive.dataTables.min.css">
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/vendors/data-tables/css/select.dataTables.min.css">
+
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/css/themes/vertical-modern-menu-template/materialize.css">
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/css/themes/vertical-modern-menu-template/style.css">
+<!-- END: Page Level CSS-->
+
+<!-- BEGIN: Custom CSS-->
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/css/custom/custom.css">
+<!-- END: Custom CSS-->
+
+
+<style type="text/css">
+#delegate_tb tr td {
+	height: 25px;
+	padding: 5px;
+	margin: 5px;
+}
+
+#aliases_tb tr td {
+	height: 25px;
+	padding: 5px;
+	margin: 5px;
+}
+
+#marketingtemplate_table tr td {
+	height: 25px;
+	padding: 5px;
+	margin: 5px;
+}
+
+#signaturetemplate_table tr td {
+	height: 25px;
+	padding: 5px;
+	margin: 5px;
+}
+</style>
+
+</head>
+<!-- END: Head-->
+
+<body
+	class="vertical-layout vertical-menu-collapsible page-header-dark vertical-modern-menu 2-columns  "
+	data-open="click" data-menu="vertical-modern-menu" data-col="2-columns"
+	th:object="${authUser}">
+
+	<!-- 	<!-- BEGIN: Header-->
+	<th:block th:utext="${header}"></th:block>
+	<!--  END: Header -->
+
+	<!-- BEGIN: SideNav -->
+	<th:block th:utext="${sidenaveMenu}"></th:block>
+	<!-- END: SideNav -->
+	
+
+	<!-- BEGIN: Page Main-->
+	<div id="main">
+		<div class="row">
+			<div class="container">
+
+				<div class="content-wrapper-before headerthemecolor"></div>
+
+				<div class="breadcrumbs-dark pb-0 pt-1" id="breadcrumbs-wrapper">
+					<!-- Search for small screen-->
+					<div class="container">
+						<div class="row">
+							<div class="col s10 m6 l6">
+								<ol class="breadcrumbs mb-0">
+									<li class="breadcrumb-item"><a href="/DashBoard">Home</a>
+									</li>
+									<li class="breadcrumb-item active">User</li>
+								</ol>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col s12">
+					<div id="progress" style="display: none;">
+						<div class="progress">
+							<div class="indeterminate"></div>
+						</div>
+					</div>
+					<div id="alerts"></div>
+					<div class="card-alert card green right" id="onsuccess"
+						style="display: none; width: 40%;">
+						<div class="card-content white-text">
+							<span class="card-title white-text darken-1"> <i
+								class="material-icons">notifications</i>G-Suite User Management
+							</span>
+							<div id="message"></div>
+						</div>
+						<button type="button" class="close white-text"
+							data-dismiss="alert" aria-label="Close" id="cancel">
+							<span aria-hidden="true">×</span>
+						</button>
+					</div>
+				</div>
+
+
+				<div class="col s12">
+					<div class="row">
+						<div class="col s12">
+							<ul class="tabs">
+								<li class="tab col m3 active"><a href="#basicInfo">Account
+										Information</a></li>
+								<li class="tab col m3"><a href="#DelegatesAliases">Aliases
+										& Delegates</a></li>
+								<li class="tab col sm"><a href="#others">Signature &
+										Other settings </a></li>
+							</ul>
+						</div>
+						<div id="basicInfo" class="col s12">
+							<div id="input-fields" class="card card-tabs">
+								<div class="card-content">
+									<div id="view-input-fields">
+										<div class="row">
+											<div class="col s12">
+												<form class="row">
+													<div class="input-field col s6">
+														<input th:value="${accountId}" id="accountId" type="text"
+															style="display: none;"> <input
+															th:value="${familyName}" id="familyname" type="text"
+															class="validate"> <label for="familyname">Family
+															Name</label>
+													</div>
+													<div class="input-field col s6">
+														<input id="givenName" type="text" th:value="${givenName}">
+														<label for="givenName">Given Name</label>
+													</div>
+													<div class="input-field col s6">
+														<input class="right" id="emailName" type="text"
+															th:value="${emailName}"> <label for="emailName">Email
+															Name</label>
+													</div>
+													<div class="input-field col s6">
+														<input placeholder="Placeholder" id="domain" type="text"
+															class="validate" th:value="${domain}" readonly="readonly">
+														<label for="domain">Domain</label>
+													</div>
+													<div class="input-field col s6">
+														<input placeholder="Placeholder" id="jobtitle" type="text"
+															class="validate" th:value="${jobtitle}"> <label
+															for="jobtitle">Job Title</label>
+													</div>
+													<div class="input-field col s6">
+														<input id="phonenumber" type="text"
+															th:value="${phonenumber}"> <label
+															for="phonenumber">Phone Number</label> <br> <br>
+
+														<button type="button"
+															class="btn right gradient-45deg-blue-indigo"
+															id="update_account">Update Account</button>
+														<br> <br>
+														<div>
+
+															<button type="button"
+																class="btn right gradient-45deg-blue-indigo"
+																id="password_reset">Password Reset</button>
+														</div>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="DelegatesAliases" class="col s12">
+							<div id="input-fields" class="card card-tabs">
+								<div class="card-content">
+									<div class="row">
+										<div class="input-field col s6">
+											<div class="right">
+												<br> <a
+													class="gradient-45deg-blue-indigo dropdown-trigger waves-effect waves-light  btn-flat white-text"
+													data-target='dropdown1'><i class="material-icons right">arrow_drop_down</i>
+													Aliases Setting</a>
+												<ul id='dropdown1' class='dropdown-content'>
+													<li class="divider"></li>
+													<li><a id="addalias">Add</a></li>
+												</ul>
+											</div>
+											<table id="aliases_tb">
+												<thead>
+													<tr>
+														<th>Aliases(List of aliases)</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr th:each="String : ${aliasesList}">
+														<td th:inline="text">[[${String}]]</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div class="input-field col s6">
+											<div class="right" style="margin: 0px; padding: 0px;">
+												<div class="right" th:if="${Services.isMaildelegation()}">
+													<br> <a
+														class="gradient-45deg-blue-indigo dropdown-trigger waves-effect waves-light  btn-flat white-text"
+														data-target='dropdown_delegates'><i
+														class="material-icons right">arrow_drop_down</i>
+														Delegation Setting</a>
+													<ul id='dropdown_delegates' class='dropdown-content'>
+														<li class="divider"></li>
+														<li><a id="addDelegate">Add</a></li>
+													</ul>
+												</div>
+											</div>
+											<table id="delegate_tb">
+												<thead>
+													<tr>
+														<th>Delegate(The email address of the delegate)</th>
+														<th>Action</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr th:each="Delegate : ${delegateList}">
+														<td th:inline="text">[[${Delegate.delegateEmail}]]</td>
+														<td class="delegatedelete"><i class="material-icons">delete_forever</i></td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div id="others" class="col s12" th:object="${TemplateType}">
+							<div id="input-fields" class="card card-tabs">
+								<div class="card-content">
+									<div class="row">
+										<div class="col s12 m6 l6">
+											SIGNATURE
+											<div class="right">
+												<a
+													class="icons_themecolor dropdown-trigger waves-effect waves-light "
+													data-target='dropdown_signature'> <i
+													style="color: purple;" class="material-icons right">more_horiz</i>Signature
+													Setting
+												</a>
+												<ul id='dropdown_signature' class='dropdown-content'>
+													<li class="divider"></li>
+													<li><a id="signatureUpdate">Update</a></li>
+												</ul>
+											</div>
+											<hr>
+											<div class="">
+												<div th:if="${TemplateType}" id="signature"
+													th:utext="${TemplateType.signature}"></div>
+											</div>
+										</div>
+										<div class="col s12 m6 l6">
+											MARKETING
+											<div class="right">
+												<a
+													class="icons_themecolor dropdown-trigger waves-effect waves-light   "
+													data-target='dropdown_marketing'> <i
+													style="color: purple;" class="material-icons right">more_horiz</i>
+													Marketing Setting
+												</a>
+												<ul id='dropdown_marketing' class='dropdown-content'>
+													<li class="divider"></li>
+													<li><a id="marketingUpdate">Update</a></li>
+												</ul>
+											</div>
+											<hr>
+											<div class="">
+												<div th:if="${TemplateType}" id="marketing"
+													th:utext="${TemplateType.marketing}"></div>
+											</div>
+										</div>
+										<div class="col s12 m6 l6" th:if="${TemplateType}">
+											CALENDER APPPOINTMENT
+											<div class="right">
+												<a
+													class="icons_themecolor dropdown-trigger waves-effect waves-light  "
+													data-target='dropdown_calender'> <i
+													style="color: purple;" class="material-icons right">more_horiz</i>
+													Aliases Setting
+												</a>
+												<ul id='dropdown_calender' class='dropdown-content'>
+													<li class="divider"></li>
+													<li><div class="switch">
+															<label> Off <input type="checkbox"> <span
+																class="lever"></span> On
+															</label>
+														</div></li>
+												</ul>
+											</div>
+											<hr>
+											<div th:if="${TemplateType}" id="calender"
+												th:utext="${TemplateType.calender}"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div id="adding_model" class="modal">
+			<div class="modal-header"></div>
+			<div class="modal-content ">
+				<div class="row">
+					<div class="col s12" style="margin: 0px; padding: 0px;">
+						<div class="input-field col s12">
+							<div id="headermessage"></div>
+						</div>
+
+						<div class="input-field col s12">
+							<input id="accountemailaddress" th:value="${emailName}"
+								type="text" class="validate" readonly="readonly"> <label
+								for="stage_amount">Account</label>
+						</div>
+
+						<div class="input-field col s12" id="alias_div"
+							style="display: none;">
+							<input id="alias_address" value="" type="text" class="validate">
+							<label for="alias_address">Alias Email Address</label>
+						</div>
+
+						<div id="delegate_div" class="input-field col s12"
+							style="display: none;">
+							<select id="potential_delegates" class="browser-default">
+								<option value="" disabled selected>Choose Account</option>
+								<option th:each="User : ${potentailDelegate}"
+									th:value="${User.id}" th:text="${User.primaryEmail}"></option>
+							</select>
+						</div>
+
+
+
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button
+					class="modal-action modal-close waves-effect waves-green btn-flat"
+					id="add_acount">Add Account</button>
+			</div>
+		</div>
+
+	</div>
+
+
+	<div id="passwordreset_model" class="modal">
+		<div class="modal-content">
+			<div class="row">
+				<div class="input-field col s12">
+					<p>PASSWORD RESET</p>
+					<br>
+				</div>
+
+				<div class="input-field col s6">
+					<input id="phonenumber_reset" value=" " type="text"
+						class="validate"> <label for="phonenumber_reset">Phone
+						number to send the new password</label>
+				</div>
+				<div class="input-field col s6">
+					<p>
+						<label> <input type="checkbox" checked="checked" /> <span>Request
+								Change On NextLogIn</span>
+						</label>
+					</p>
+				</div>
+
+				<div class="input-field col s12">
+					<input id="newpassword_reset" value=" " type="text"
+						class="validate"> <label for="newpassword_reset">New
+						Password</label>
+				</div>
+				<br>
+				<button id="resetpass" type="button" class="btn right">Reset</button>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+	<div id="signatureupdate_model" class="modal bottom-sheet">
+		<div class="modal-content">
+			<div class="row">
+				<div class="col s6">
+					<table id="signaturetemplate_table" style="width: 100%">
+						<thead>
+							<tr>
+								<th>Template ID</th>
+								<th>Template Name</th>
+								<th style="display: none;" hidden="hidden"></th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="SignatureTemplate : ${domainsignatures}">
+								<td th:text="${SignatureTemplate.getId()}"></td>
+								<td th:text="${SignatureTemplate.getName()}"></td>
+								<td style="display: none;" hidden="hidden"
+									th:text="${SignatureTemplate.getSignatureBody()}"></td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="col s6">
+					<p style="margin: 0px; padding: 0px;">Signature Templates</p>
+					<br>
+					<div id="signature_template_selected"></div>
+					<button class="btn  right" id="signatureupdatetemplate">Apply</button>
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer"></div>
+	</div>
+
+	<div id="marketingupdate_model" class="modal bottom-sheet">
+		<div class="modal-content">
+			<div class="row">
+
+				<div class="col s6">
+
+					<table id="marketingtemplate_table" style="width: 100%">
+						<thead>
+							<tr>
+								<th>Template ID</th>
+								<th>Template Name</th>
+								<th style="display: none;" hidden="hidden"></th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="MarketingTemplate : ${domainmarketing}">
+								<td th:text="${MarketingTemplate.getId()}"></td>
+								<td th:text="${MarketingTemplate.getName()}"></td>
+								<td style="display: none;" hidden="hidden"
+									th:text="${MarketingTemplate.getMarketingBody()}"></td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="col s6">
+					<p style="margin: 0px; padding: 0px;">Marketing Templates</p>
+					<br>
+					<div id="market_template_selected"></div>
+					<button class="btn right" id="marketingupdatetemplate">Apply</button>
+				</div>
+			</div>
+
+		</div>
+		<div class="modal-footer"></div>
+	</div>
+
+
+
+
+
+
+	<!-- END: Page Main-->
+
+	<!-- <script src="/app-assets/js/custom/update_usermanagemnt.js"
+	type="text/javascript"></script> -->
+
+
+
+
+
+	<!-- BEGIN VENDOR JS-->
+	<script src="/app-assets/js/vendors.min.js" type="text/javascript"></script>
+	<!-- BEGIN VENDOR JS-->
+	<!-- BEGIN PAGE VENDOR JS-->
+	<!-- BEGIN THEME  JS-->
+	<script src="/app-assets/js/plugins.js" type="text/javascript"></script>
+	<script src="/app-assets/js/custom/custom-script.js"
+		type="text/javascript"></script>
+
+
+	<script
+		src="/app-assets/vendors/data-tables/js/jquery.dataTables.min.js"
+		type="text/javascript"></script>
+	<script
+		src="/app-assets/vendors/data-tables/extensions/responsive/js/dataTables.responsive.min.js"
+		type="text/javascript"></script>
+	<script
+		src="/app-assets/vendors/data-tables/js/dataTables.select.min.js"
+		type="text/javascript"></script>
+
+	<script src="/app-assets/js/scripts/customizer.js"
+		type="text/javascript"></script>
+	<!-- END THEME  JS-->
+	<script src="/app-assets/vendors/sweetalert/sweetalert.min.js"></script>
+	<script src="/app-assets/js/scripts/ui-alerts.js"
+		type="text/javascript"></script>
+	<!-- BEGIN PAGE LEVEL JS-->
+	<script src="/app-assets/js/scripts/gms-usermanagementinfo.js"
+		type="text/javascript"></script>
+
+	<script
+		src="/app-assets/js/scripts/gms-usermanagementinfo_signature.js"
+		type="text/javascript"></script>
+
+	<!-- END PAGE LEVEL JS-->
+</body>
+
+<!-- Mirrored from pixinvent.com/materialize-material-design-admin-template/html/ltr/vertical-modern-menu-template/form-elements.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Sep 2019 06:15:58 GMT -->
+
+</html>

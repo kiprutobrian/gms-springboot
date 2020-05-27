@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html class="loading" lang="en" data-textdirection="ltr">
+<div th:replace="fragments/header-css :: header-css"></div>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <th:block th:replace="fragments/leftnav :: leftnav"></th:block>
+
+            <main class="col account">
+                <div class="row">
+                    <th:block th:replace="fragments/header :: header"></th:block>
+                </div>
+                <div class="row create-account">
+                    <div class="container-gms">
+                        <div class="row">
+                            <div class="col-md-12 d-flex justify-content-center">
+                                <form class="create-account__form">
+                                    <div class="form-row create-account__form-item">
+                                        <div class="form-group col-md-6">
+                                            <label for="familyname">Family Name</label>
+                                            <input type="text" value=" "
+                                                class="form-control create-account__form-item_input" id="familyname">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="givenName">Given Name</label>
+                                            <input id="givenName" type="text" value=" "
+                                                class="form-control create-account__form-item_input">
+                                        </div>
+                                    </div>
+                                    <div class="form-row create-account__form-item">
+                                        <div class="form-group col-md-6">
+                                            <label for="emailName">Email Address</label>
+                                            <input id="emailName" type="text" value=" "
+                                                class="form-control create-account__form-item_input">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="domain">Domain</label>
+                                            <input id="domain" type="text" th:value="${domain}"
+                                                class="form-control create-account__form-item_input">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row create-account__form-item">
+                                        <div class="form-group col-md-6">
+                                            <label for="jobtitle">Job Title</label>
+                                            <input id="phonenumber" type="text" value=" "
+                                                class="form-control create-account__form-item_input">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="phonenumber">Phone Number</label>
+                                            <input id="phonenumber" type="text" value=" "
+                                                class="form-control create-account__form-item_input">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group create-account__form-item">
+                                        <label for="defaultpassword">Default Password</label>
+                                        <input id="defaultpassword" type="password"
+                                            class="form-control create-account__form-item_input">
+                                    </div>
+
+                                    <div class="custom-control custom-switch create-account__form-item">
+                                        <input type="checkbox"
+                                            class="custom-control-input custom-switch create-account__form-item_switch"
+                                            id="customSwitch1">
+                                        <label class="custom-control-label" for="customSwitch1">Force user to change
+                                            password on login</label>
+                                    </div>
+
+                                    <button type="submit" id="submit" class="btn btn-md create-account__form-btn">Create
+                                        Account</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!--         <th:block th:replace="fragments/footer :: footer"></th:block> -->
+    <th:block th:include="fragments/js-content :: js-content"></th:block>
+</body>
+
+</html>

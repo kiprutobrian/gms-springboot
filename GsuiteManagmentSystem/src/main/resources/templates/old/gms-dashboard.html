@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+<div th:replace="fragments/header-css :: header-css"></div>
+<body>
+    <div class="container-fluid">
+        <th:block th:replace="fragments/header :: header"></th:block>
+        <div class="row">
+            <th:block th:replace="fragments/leftnav :: leftnav"></th:block>
+            <main class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                <!-- BEGIN: Page Main-->
+                <div id="main">
+                <div class="row">
+			<div class="container" th:object="${Services}">
+
+				<div class="col s12">
+					<div id="progress" style="display: none;">
+						<div class="progress">
+							<div class="indeterminate"></div>
+						</div>
+					</div>
+
+					<div id="alerts"></div>
+					<div class="card-alert card  gradient-45deg-blue-indigo right "
+						id="onsuccess" style="display: none; width: 40%;">
+						<div class="card-content white-text">
+							<span class="card-title white-text darken-1"> <i
+								class="material-icons">notifications</i>Updates
+							</span>
+							<div id="message"></div>
+						</div>
+						<button type="button" class="close white-text"
+							data-dismiss="alert" aria-label="Close" id="cancel">
+							<span aria-hidden="true">×</span>
+						</button>
+					</div>
+				</div>
+
+				<div class="col s12">
+					<p class="m-0 right">
+						version : <span style="color: black; font-size: 10px;">1.23</span>
+					</p>
+
+
+					<div class="section">
+							<div th:if="${Services.setting}">
+								<div class="center card" data-position="bottom"
+									>
+									<a class="icons_themecolor" href="#"> <i
+										class="material-icons md-24">supervisor_account</i>
+									</a> <br>
+									<p style="margin: 0px;">
+										<span><b>G-Suite Domain</b></span>
+										<span>create,delete,suspend or update a gsuit accounts and contacts</span>
+									</p>
+									
+								</div>
+							</div>
+							<div th:if="${Services.setting}">
+								<div class="center card" data-position="bottom"
+									>
+									<a class="icons_themecolor" href="#"> <i
+										class="material-icons md-24">account_circle</i>
+									</a> <br>
+									<p style="margin: 0px;">
+										<span><b>GMS users</b></span>
+										<span>create,delete,suspend or update a gms user access to the portal</span>
+									</p>	
+								</div>
+							</div>
+							<div th:if="${Services.setting}">
+								<div class="center card" data-position="bottom">
+									<a class="icons_themecolor" href="#"> <i
+										class="material-icons md-24">security</i>
+									</a> <br>
+									<p style="margin: 0px;">
+										<span><b>Roles & Access</b></span>
+										<span>set users access and role on the portal</span>
+									</p>
+								</div>
+							</div>
+							<div th:if="${Services.marketingBranding}">
+								<div class="center card" data-position="bottom">
+									<a class="icons_themecolor" href="#"> <i
+										class="material-icons md-24">streetview</i>
+									</a> <br>
+									<p style="margin: 0px;">
+										<span><b>Marketing Setting</b></span>
+										<span>Set,Update or Delete marketing & branding templates of gsuite accounts</span>
+									</p>
+								</div>
+							</div>
+							<div th:if="${Services.marketingBranding}">
+								<div class="center card" data-position="bottom">
+									<a class="icons_themecolor" href="#"> <i
+										class="material-icons md-24 ">view_quilt</i>
+									</a> <br>
+									<p style="margin: 0px;">
+										<span><b>Marketing Templates</b></span>
+										<span>Create or Delete marketing & branding templates</span>
+									</p>
+								</div>
+							</div>
+							<div th:if="${Services.signature}">
+								<div class="center card" data-position="bottom">
+									<a class="icons_themecolor" href="#"> <i
+										class="material-icons md-24">style</i>
+									</a> <br>
+									<p style="margin: 0px;">
+										<span><b>Signature Setting</b></span>
+										<span>Set,Update or Delete signature templates of gsuite accounts</span>
+									</p>
+								</div>
+							</div>
+							<div th:if="${Services.signature}">
+								<div class="center card" data-position="bottom">
+									<a class="icons_themecolor" href="#"> <i
+										class="material-icons md-24">view_quilt</i>
+									</a> <br>
+									<p style="margin: 0px;">
+										<span><b>Signature Templates</b></span>
+										<span>Create or Delete Signature templates</span>
+									</p>
+								</div>
+							</div>
+							<div th:if="${Services.calenderApointment}">
+								<div class="center card" data-position="bottom">
+									<a class="icons_themecolor" href="#"> <i
+										class="material-icons md-24">event</i>
+									</a> <br>
+									<p style="margin: 0px;">
+										<span><b>Appointment Slot</b></span>
+										<span>Set appoinment slot booking for google domain accounts</span>
+									</p>
+								</div>
+							</div>
+							<div th:if="${Services.maildelegation}">
+								<div class="center card" data-position="bottom">
+									<a class="icons_themecolor" href="#"> <i
+										class="material-icons md-24">wc</i>
+									</a> <br>
+									<p style="margin: 0px;">
+										<span><b>Email Delegation</b></span>
+										<span>Create or Delete delegates on gsuite Accounts</span>
+									</p>
+								</div>
+							</div>
+							<div th:if="${Services.emailAnalysis}">
+								<div class="center card" data-position="bottom">
+									<a class="icons_themecolor" href="#"> <i
+										class="material-icons md-24">perm_data_setting</i>
+									</a> <br>
+									<p style="margin: 0px;">
+										<span><b>Mail Analysis</b></span>
+										<span>View Domain mail analysis and indiidual account response time</span>
+									</p>
+								</div>
+							</div>
+							<div th:if="${Services.driveAnalysis}">
+								<div class="center card" data-position="bottom">
+									<a class="icons_themecolor" href="#"> <i
+										class="material-icons md-24">folder_shared</i>
+									</a> <br>
+									<p style="margin: 0px;">
+										<span><b>Drive Files & Folder</b></span>
+										<span>Manage domain drive files & folders shared withi and outside the domain</span>
+									</p>
+								</div>
+							</div>
+							<div th:if="${Services.driveAnalysis}">
+								<div class="center card" data-position="bottom">
+									<a class="icons_themecolor" href="#"> <i
+										class="material-icons md-24">folder_special</i>
+									</a> <br>
+									<p style="margin: 0px;">
+										<span><b>Drive Analysis</b></span>
+										<span>View Domain drive analysis and usage</span>
+									</p>
+								</div>
+							</div>
+							<div th:if="${Services.dataMigration}">
+								<div class="center card" data-position="bottom">
+									<a class="icons_themecolor" href="#"> <i
+										class="material-icons md-24">transfer_within_a_station</i>
+									</a> <br>
+									<p style="margin: 0px;">
+										<span><b>Data Migration</b></span>
+										<span>Migrate account data to another account within the domain</span>
+									</p>
+								</div>
+							</div>
+							<div th:if="${Services.registration}">
+								<div class="center card" data-position="bottom">
+									<a class="icons_themecolor" href="#"> <i
+										class="material-icons md-24">domain</i>
+									</a> <br>
+									<p style="margin: 0px;">
+										<span><b>Organization</b></span>
+										<span>View Organisaton information</span>
+									</p>
+								</div>
+							</div>
+
+							<div th:if="${Services.setting}">
+								<div class="center card" data-position="bottom">
+									<a class="icons_themecolor" href="#"> <i
+										class="material-icons md-24">android</i>
+									</a> <br>
+									<p style="margin: 0px;">
+										<span><b>GMS Apps</b></span>
+										<span>View other available gms apps to support your organization</span>
+									</p>
+								</div>
+							</div>
+
+							<div th:if="${Services.reporting}">
+								<div class="center card" data-position="bottom">
+									<a class="icons_themecolor" href="#"> <i
+										class="material-icons md-24">report</i>
+									</a> <br>
+									<p style="margin: 0px;">
+										<span><b>Reports & Logs</b></span>
+										<span>View gms reports and logs for your domain</span>
+									</p>
+								</div>
+							</div>
+							<div>
+								<div class="center card" data-position="bottom">
+									<a class="icons_themecolor" href="#"> <i
+										class="material-icons md-24">help_outline</i>
+									</a> <br>
+									<p style="margin: 0px;">
+										<span><b>Help & Support</b></span>
+										<span>Contact for help and support</span>
+									</p>
+								</div>
+							</div>
+					</div>
+					<!-- START RIGHT SIDEBAR NAV -->
+					<!-- END RIGHT SIDEBAR NAV -->
+				</div>
+			</div>
+		</div>
+	
+	
+                </div>
+                <!-- END: Page Main-->
+            </main>
+        </div>
+    </div>
+    <th:block th:replace="fragments/footer :: footer"></th:block>
+    <th:block th:include="fragments/js-content :: js-content"></th:block>
+</body>
+</html>

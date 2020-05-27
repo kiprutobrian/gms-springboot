@@ -1,0 +1,56 @@
+/*----------------------------------------
+  Dashboard Page Style
+------------------------------------------*/
+.dashboard {
+    // background-color: $body-bg;
+    margin-top: 5rem;
+}
+
+
+.dashboard {
+    margin-right: 19rem;
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+
+
+    &--box {
+        padding: 1rem;
+        display: flex;
+        background: #ffffff;
+        align-items: center;
+        border-radius: 4px;
+
+        &:hover {
+            background: #EE6E73;
+            -webkit-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            transform: scale(1.1);
+            -webkit-transition: all 1s ease;
+
+            .icons_themecolor {
+                color: #ffffff;
+            }
+
+            .text {
+                color: #ffffff;
+
+            }
+        }
+
+        .icons_themecolor {
+            color: #000000;
+            font-size: 3.6rem;
+            padding-right: 2rem;
+        }
+
+        .text {
+            color: #000000;
+            font-size: 1.2rem;
+            white-space: nowrap;
+            line-height: 1;
+            margin: 0;
+        }
+    }
+
+}

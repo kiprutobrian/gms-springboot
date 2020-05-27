@@ -1,0 +1,11 @@
+.intro {
+    &-list {
+        list-style: none;
+        display: flex;
+
+        &--item {
+            font-size: 1.6rem;
+            padding-right: 3rem;
+        }
+    }
+}

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+<div th:replace="fragments/header-css :: header-css"></div>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <th:block th:replace="fragments/leftnav :: leftnav"></th:block>
+
+
+
+            <!-- BEGIN: Page Main-->
+            <main class="col">>
+                <div class="row">
+                    <th:block th:replace="fragments/header :: header"></th:block>
+                </div>
+
+
+                <div class="row">
+                    <div class="container-gms">
+                        <div class="col-md-12">
+                            <div id="progress" style="display: none;">
+                                <div class="progress">
+                                    <div class="indeterminate"></div>
+                                </div>
+                            </div>
+                            <div id="alerts"></div>
+                            <div class="card-alert card green right" id="onsuccess" style="display: none; width: 40%;">
+                                <div class="card-content white-text">
+                                    <span class="card-title white-text darken-1"> <i
+                                            class="material-icons">notifications</i>Account Delegation
+                                    </span>
+                                    <div id="message"></div>
+                                </div>
+                                <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close"
+                                    id="cancel">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="col s12" style="background-color: white;">
+                            <!-- Input Fields -->
+                            <div class="col s4">
+                                <div id="icon-prefixes-two" class="card card-tabs">
+                                    <div class="card-content">
+                                        <div id="view-icon-prefixes-two">
+                                            <div class="row">
+                                                <div class="col s12 center-align">
+                                                    <img class="responsive-img circle z-depth-5" width="100"
+                                                        src="/app-assets/images/user/12.jpg" alt="">
+
+                                                    <p></p>
+                                                </div>
+                                                <form class="col s12">
+                                                    <div class="row">
+                                                        <div class="input-field col s12">
+
+                                                            <hr>
+
+                                                            <div class="col s4">
+                                                                <p>Email</p>
+                                                            </div>
+                                                            <div class="col s8">
+                                                                <p th:inline="text">[[${delemail}]]</p>
+                                                            </div>
+
+                                                            <div class="col s4">
+                                                                <p>User Name</p>
+                                                            </div>
+                                                            <div class="col s8">
+                                                                <p th:inline="text">[[${delusername}]]</p>
+                                                            </div>
+
+                                                            <div class="col s4">
+                                                                <p>Delegates</p>
+                                                            </div>
+                                                            <div class="col s8">
+                                                                <p th:inline="text">[[${DelegatesNumber}]]</p>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col s8">
+                                <div class="input-field ">
+                                    <div class="col s8">
+                                        <select id="package" class="package">
+                                            <option value="0" disabled selected>Choose An Account
+                                                To delegate the above account</option>
+                                            <option th:each="User : ${domainUser}" th:value="${User.getId()}"
+                                                th:inline="text">[[${User.getPrimaryEmail()}]]</option>
+                                        </select>
+                                    </div>
+                                    <div class="col s4">
+                                        <button id="delegatebutton" class="btn gradient-45deg-blue-indigo right"
+                                            type="submit">Add
+                                            Delegate</button>
+                                        <br>
+                                    </div>
+                                    <div class="col s12">
+                                        <h6 style="color: black;">ACCOUNT DELEGATES</h6>
+                                        <ul class="collection" th:each="Delegate : ${deligateList}">
+                                            <li class="collection-item ">
+                                                <div class="m-0 ">
+                                                    <div class="col s6">
+                                                        <h6 th:inline="text">[[${Delegate.getDelegateEmail()}]]</h6>
+                                                    </div>
+                                                    <div class="col s6">
+                                                        <div class="switch right">
+                                                            <a class="material-icons"
+                                                                th:href="@{/RemoveDelegateAccount/} + ${Delegate.getDelegateEmail()}+lg+${delemail}+@{/}+${id}">cancel</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- END: Page Main-->
+        </div>
+    </div>
+
+    <!-- END PAGE LEVEL JS-->
+
+    <script type="text/javascript" th:inline="javascript">
+        /*<![CDATA[*/
+
+        $(document).ready(function () {
+
+            var token = $("meta[name='_csrf']").attr("content");
+            var userId = /*[[${delemail}]]*/ '';
+
+            $("#delegatebutton").click(function () {
+                var delegateEmail = $('#package').find(":selected").text();
+                var UpdateDirectory = {
+                    id: userId,
+                    givenName: null,
+                    fullname: null,
+                    familyname: null,
+                    emailAdress: delegateEmail,
+                    imageUrl: null,
+                    createdById: null,
+                }
+                console.log(UpdateDirectory);
+
+                $.ajax({
+                    url: "/processDeligationAccount",
+                    headers: {
+                        "X-XSRF-TOKEN": token,
+                    },
+                    data: JSON.stringify(UpdateDirectory),
+                    type: "POST",
+                    contentType: "application/json",
+                    dataType: 'json',
+                    success: function (result) {
+                        location.reload();
+                    },
+                    error: function (e) {
+                        console.log("ERROR: ", e);
+                    }
+                });
+
+            });
+
+        });
+        /*]]>*/
+
+    </script>
+
+    <!--         <th:block th:replace="fragments/footer :: footer"></th:block> -->
+    <th:block th:include="fragments/js-content :: js-content"></th:block>
+</body>
+
+</html>

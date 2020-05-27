@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<!--
+Template Name: Materialize - Material Design Admin Template
+Author: PixInvent
+Website: http://www.pixinvent.com/
+Contact: hello@pixinvent.com
+Follow: www.twitter.com/pixinvents
+Like: www.facebook.com/pixinvents
+Purchase: https://1.envato.market/materialize_admin
+Renew Support: https://1.envato.market/materialize_admin
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+
+-->
+<html class="loading" lang="en" data-textdirection="ltr">
+<!-- BEGIN: Head-->
+
+<!-- Mirrored from pixinvent.com/materialize-material-design-admin-template/html/ltr/vertical-modern-menu-template/media-hover-effects.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Sep 2019 06:15:29 GMT -->
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+<meta name="description"
+	content="Materialize is a Material Design Admin Template,It's modern, responsive and based on Material Design by Google.">
+<meta name="keywords"
+	content="materialize, admin template, dashboard template, flat admin template, responsive admin template, eCommerce dashboard, analytic dashboard">
+<meta name="author" content="ThemeSelect">
+<title>G suite</title>
+<link rel="apple-touch-icon"
+	href="/app-assets/images/favicon/apple-touch-icon-152x152.png">
+<link rel="shortcut icon" type="image/x-icon"
+	href="./app-assets/images/logo/cloud-logo.png">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<!-- BEGIN: VENDOR CSS-->
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/vendors/vendors.min.css">
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/vendors/flag-icon/css/flag-icon.min.css">
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/vendors/magnific-popup/magnific-popup.css">
+<!-- END: VENDOR CSS-->
+<!-- BEGIN: Page Level CSS-->
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/vendors/sweetalert/sweetalert.css">
+
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/css/themes/vertical-modern-menu-template/materialize.css">
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/css/themes/vertical-modern-menu-template/style.css">
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/vendors/hover-effects/media-hover-effects.css">
+<!-- END: Page Level CSS-->
+<!-- BEGIN: Custom CSS-->
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/css/custom/custom.css">
+<!-- END: Custom CSS-->
+</head>
+<!-- END: Head-->
+
+<body
+	class="vertical-layout vertical-menu-collapsible page-header-dark vertical-modern-menu 2-columns"
+	data-open="click" data-menu="vertical-modern-menu" data-col="2-columns"
+	th:object="${authUser}">
+
+	<!-- 	 BEGIN: Header-->
+	<th:block th:utext="${header}"></th:block>
+	<!--  END: Header -->
+
+	<!-- BEGIN: SideNav -->
+	<th:block th:utext="${sidenaveMenu}"></th:block>
+	<!-- END: SideNav -->
+
+
+	<!-- BEGIN: Page Main-->
+	<div id="main">
+		<div class="row">
+			<div class="container" th:object="${Services}">
+				<div id="card-stats">
+					<div class="row">
+						<div class="col s12">
+							<div id="progress" style="display: none;">
+								<div class="progress">
+									<div class="indeterminate"></div>
+								</div>
+							</div>
+
+							<div id="alerts"></div>
+							<div class="card-alert card  gradient-45deg-blue-indigo right "
+								id="onsuccess" style="display: none; width: 40%;">
+								<div class="card-content white-text">
+									<span class="card-title white-text darken-1"> <i
+										class="material-icons">notifications</i>Updates
+									</span>
+									<div id="message"></div>
+								</div>
+								<button type="button" class="close white-text"
+									data-dismiss="alert" aria-label="Close" id="cancel">
+									<span aria-hidden="true">×</span>
+								</button>
+							</div>
+						</div>
+
+
+						<div class="col s12">
+							<p class="m-0 right">
+								version : <span style="color: black; font-size: 10px;">1.24</span>
+							</p>
+
+							<div class="section">
+								<div class="row">
+									<div th:if="${Services.setting}" class="col s12 m6 l4 xl2">
+										<div class="center card tooltipped" data-position="bottom"
+											data-tooltip="create,delete,suspend or update a gsuit accounts and contacts">
+											<a class="icons_themecolor" href="#"> <i
+												class="material-icons md-48">supervisor_account</i>
+											</a> <br>
+											<p style="margin: 0px;">G-Suite Domain</p>
+
+										</div>
+									</div>
+
+									<div th:if="${Services.marketingBranding}"
+										class="col s12 m6 l4 xl2">
+										<div class="center card tooltipped" data-position="bottom"
+											data-tooltip="Set,Update or Delete marketing & branding templates of gsuite accounts">
+											<a class="icons_themecolor" href="#"> <i
+												class="material-icons md-48">streetview</i>
+											</a> <br>
+											<p style="margin: 0px;">Marketing Setting</p>
+										</div>
+									</div>
+									<div th:if="${Services.marketingBranding}"
+										class="col s12 m6 l4 xl2">
+										<div class="center card tooltipped" data-position="bottom"
+											data-tooltip="Create or Delete marketing & branding templates">
+											<a class="icons_themecolor" href="#"> <i
+												class="material-icons md-48 ">view_quilt</i>
+											</a> <br>
+											<p style="margin: 0px;">Marketing Templates</p>
+										</div>
+									</div>
+									<div th:if="${Services.signature}" class="col s12 m6 l4 xl2">
+										<div class="center card tooltipped" data-position="bottom"
+											data-tooltip="Set,Update or Delete signature templates of gsuite accounts">
+											<a class="icons_themecolor" href="#"> <i
+												class="material-icons md-48">style</i>
+											</a> <br>
+											<p style="margin: 0px;">Signature Setting</p>
+										</div>
+									</div>
+									<div th:if="${Services.signature}" class="col s12 m6 l4 xl2">
+										<div class="center card tooltipped" data-position="bottom"
+											data-tooltip="Create or Delete Signature templates">
+											<a class="icons_themecolor" href="#"> <i
+												class="material-icons md-48">view_quilt</i>
+											</a> <br>
+											<p style="margin: 0px;">Signature Templates</p>
+										</div>
+									</div>
+									<div th:if="${Services.calenderApointment}"
+										class="col s12 m6 l4 xl2">
+										<div class="center card tooltipped" data-position="bottom"
+											data-tooltip="Set appoinment slot booking for google domain accounts">
+											<a class="icons_themecolor" href="#"> <i
+												class="material-icons md-48">event</i>
+											</a> <br>
+											<p style="margin: 0px;">Appointment Slot</p>
+										</div>
+									</div>
+									<div th:if="${Services.maildelegation}"
+										class="col s12 m6 l4 xl2">
+										<div class="center card tooltipped" data-position="bottom"
+											data-tooltip="Create or Delete delegates on gsuite Accounts">
+											<a class="icons_themecolor" href="#"> <i
+												class="material-icons md-48">wc</i>
+											</a> <br>
+											<p style="margin: 0px;">Mail Delegation</p>
+										</div>
+									</div>
+									<div th:if="${Services.emailAnalysis}"
+										class="col s12 m6 l4 xl2">
+										<div class="center card tooltipped" data-position="bottom"
+											data-tooltip="View Domain mail analysis and indiidual account response time">
+											<a class="icons_themecolor" href="#"> <i
+												class="material-icons md-48">perm_data_setting</i>
+											</a> <br>
+											<p style="margin: 0px;">Mail Analysis</p>
+										</div>
+									</div>
+									<div th:if="${Services.driveAnalysis}"
+										class="col s12 m6 l4 xl2">
+										<div class="center card tooltipped" data-position="bottom"
+											data-tooltip="Manage domain drive files & folders shared withi and outside the domain">
+											<a class="icons_themecolor" href="#"> <i
+												class="material-icons md-48">folder_shared</i>
+											</a> <br>
+											<p style="margin: 0px;">Drive Files & Folder</p>
+										</div>
+									</div>
+									<div th:if="${Services.driveAnalysis}"
+										class="col s12 m6 l4 xl2">
+										<div class="center card tooltipped" data-position="bottom"
+											data-tooltip="View Domain drive analysis and usage">
+											<a class="icons_themecolor" href="#"> <i
+												class="material-icons md-48">folder_special</i>
+											</a> <br>
+											<p style="margin: 0px;">Drive Analysis</p>
+										</div>
+									</div>
+									<div th:if="${Services.dataMigration}"
+										class="col s12 m6 l4 xl2">
+										<div class="center card tooltipped" data-position="bottom"
+											data-tooltip="Migrate account data to another account within the domain">
+											<a class="icons_themecolor" href="#"> <i
+												class="material-icons md-48">transfer_within_a_station</i>
+											</a> <br>
+											<p style="margin: 0px;">Data Migration</p>
+										</div>
+									</div>
+
+									<div th:if="${Services.reporting}" class="col s12 m6 l4 xl2">
+										<div class="center card tooltipped" data-position="bottom"
+											data-tooltip="View gms reports and logs for your domain">
+											<a class="icons_themecolor" href="#"> <i
+												class="material-icons md-48">report</i>
+											</a> <br>
+											<p style="margin: 0px;">Reports</p>
+										</div>
+									</div>
+									<div th:if="${Services.setting}" class="col s12 m6 l4 xl2">
+										<div class="center card tooltipped" data-position="bottom"
+											data-tooltip="create,delete,suspend or update a gms user access to the portal">
+											<a class="icons_themecolor" href="#"> <i
+												class="material-icons md-48">account_circle</i>
+											</a> <br>
+											<p style="margin: 0px;">GMS users</p>
+										</div>
+									</div>
+									<div th:if="${Services.setting}" class="col s12 m6 l4 xl2">
+										<div class="center card tooltipped" data-position="bottom"
+											data-tooltip="set users access and role on the portal">
+											<a class="icons_themecolor" href="#"> <i
+												class="material-icons md-48">security</i>
+											</a> <br>
+											<p style="margin: 0px;">Roles & Access</p>
+										</div>
+									</div>
+									<div class="col s12 m6 l4 xl2">
+										<div class="center card tooltipped" data-position="bottom"
+											data-tooltip="Contact for help and support">
+											<a class="icons_themecolor" href="#"> <i
+												class="material-icons md-48">help_outline</i>
+											</a> <br>
+											<p style="margin: 0px;">Help & Support</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- START RIGHT SIDEBAR NAV -->
+							<!-- END RIGHT SIDEBAR NAV -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- END: Page Main-->
+	<!-- END: Page Main-->
+
+	<!-- Theme Customizer -->
+
+
+	<!-- END: Footer-->
+	<!-- BEGIN VENDOR JS-->
+	<script src="/app-assets/js/vendors.min.js" type="text/javascript"></script>
+	<!-- BEGIN VENDOR JS-->
+	<!-- BEGIN PAGE VENDOR JS-->
+
+	<script src="/app-assets/js/plugins.js" type="text/javascript"></script>
+	<script src="/app-assets/js/custom/custom-script.js"
+		type="text/javascript"></script>
+	<script src="/app-assets/js/scripts/customizer.js"
+		type="text/javascript"></script>
+
+	<!-- END THEME  JS-->
+	<!-- BEGIN PAGE LEVEL JS-->
+	<script src="/app-assets/js/scripts/ui-alerts.js"
+		type="text/javascript"></script>
+
+	<!-- END PAGE LEVEL JS-->
+</body>
+
+<!-- Mirrored from pixinvent.com/materialize-material-design-admin-template/html/ltr/vertical-modern-menu-template/media-hover-effects.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Sep 2019 06:15:31 GMT -->
+
+</html>

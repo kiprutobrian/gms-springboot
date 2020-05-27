@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+<div th:replace="fragments/header-css :: header-css"></div>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <th:block th:replace="fragments/leftnav :: leftnav"></th:block>
+
+
+            <!-- END: Header-->
+            <main class="col">
+
+                <div class="row">
+                    <th:block th:replace="fragments/header :: header"></th:block>
+                </div>
+
+                <div id="progress" style="display: none;">
+                    <div class="progress">
+                        <div class="indeterminate"></div>
+                    </div>
+                </div>
+                <div id="alerts"></div>
+                <div class="card-alert card cyan right" id="onsuccess" style="display: none; width: 40%;">
+                    <div class="card-content white-text">
+                        <span class="card-title white-text darken-1"> <i class="material-icons">date</i>Appointment
+                            Booked
+                        </span>
+                        <div id="message"></div>
+                    </div>
+                    <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close" id="cancel">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="col s12">
+                    <div class="card-content">
+                        <div id="view-example">
+                            <div class="row">
+                                <div class="col s12">
+                                    <div class="col s8">
+                                        <div class="myCalendar card"></div>
+                                        <p>Select the date and time you wish to make the appointment
+                                            and i will get back to you.</p>
+                                    </div>
+                                    <div class="col s4" style="margin-top: 10px;">
+                                        <div id="am" class="col s6" style="display: none;">
+                                            <table id="mornings" class="display">
+                                                <thead>
+                                                    <th></th>
+                                                    <th style="display: none;"></th>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div id="pm" class="col s6" style="display: none;">
+                                            <table id="noons" class="display">
+                                                <thead>
+                                                    <th></th>
+                                                    <th style="display: none;"></th>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <div id="modal2" class="modal modal-fixed-footer" style="overflow-y: hidden;">
+                                        <div class="modal-content" style="overflow-y: hidden;">
+                                            <form class="row col s12">
+                                                <div class="col s12">
+                                                    <p>Appointment Form</p>
+                                                </div>
+                                                <div class="col s6">
+                                                    <label for="mydate">MEETING DATE <input id="mydate"
+                                                            placeholder="12-12-2019" type="text" readonly="readonly">
+                                                    </label>
+                                                </div>
+                                                <div class="col s3">
+                                                    <label for="starting">STARTING TIME<input id="starting" type="text"
+                                                            placeholder="12:00 P.M" readonly="readonly">
+                                                    </label>
+                                                </div>
+                                                <div class="col s3">
+                                                    <label for="ending">ENDING TIME<input placeholder="12:30 P.M"
+                                                            id="ending" type="text" readonly="readonly">
+                                                    </label>
+                                                </div>
+                                                <div class="col s12">
+                                                    <label for="title">MEETING SUBJECT<input id="title" type="text"
+                                                            placeholder="Meeting Subject">
+                                                    </label>
+                                                </div>
+                                                <div class="col s12">
+                                                    <label for="fullname">FULL NAME<input placeholder="Full Names"
+                                                            id="fullname" type="text">
+                                                    </label>
+                                                </div>
+                                                <div class="col s12">
+                                                    <label for="organisation">ORGANIZATION NAME<input
+                                                            placeholder="Organization Name" id="organisation"
+                                                            type="text" class="validate">
+                                                    </label>
+                                                </div>
+                                                <div class="col s6">
+                                                    <label for="email">EMAIL ADDRRESS <input id="email"
+                                                            placeholder="Email Address" type="text">
+                                                    </label>
+                                                </div>
+
+                                                <div class="col s6">
+                                                    <label for="phonenumber">PHONE NUMBER<input id="phonenumber"
+                                                            type="text" placeholder="Phone Number">
+                                                    </label>
+                                                </div>
+                                                <div class="col s6">
+                                                    <label for="description">DESCRIPTION<input id="description"
+                                                            type="text" placeholder="Meeting Description ...">
+                                                    </label>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a href="#!"
+                                                class=" btn modal-action modal-close waves-effect waves-red btn-flat ">Cancel</a>
+                                            <button type="button" id="make_appointment"
+                                                class="btn right gradient-45deg-blue-indigo right">Book
+                                                Appointment</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <!-- END: Page Main-->
+
+            <!-- BEGIN VENDOR JS-->
+            <script src="/app-assets/js/vendors.min.js" type="text/javascript"></script>
+            <!-- BEGIN VENDOR JS-->
+            <!-- BEGIN PAGE VENDOR JS-->
+            <!-- END PAGE VENDOR JS-->
+            <!-- BEGIN THEME  JS-->
+            <script src="/app-assets/js/plugins.js" type="text/javascript"></script>
+            <script src="/app-assets/js/custom/custom-script.js" type="text/javascript"></script>
+            <script src="/app-assets/js/scripts/customizer.js" type="text/javascript"></script>
+            <!-- END THEME  JS-->
+            <!-- BEGIN PAGE LEVEL JS-->
+            <script src="/app-assets/js/scripts/advance-ui-modals.js" type="text/javascript"></script>
+            <script src="/app-assets/vendors/sweetalert/sweetalert.min.js"></script>
+
+            <script src="/app-assets/js/scripts/ui-alerts.js" type="text/javascript"></script>
+
+            <!-- END PAGE LEVEL JS-->
+
+            <script src="/appointment/jquery-pseudo-ripple.js" type="text/javascript"></script>
+            <script src="/appointment/jquery-nao-calendar.js" type="text/javascript"></script>
+
+            <!-- Mirrored from pixinvent.com/materialize-material-design-admin-template/html/ltr/vertical-modern-menu-template/advance-ui-modals.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Sep 2019 06:15:50 GMT -->
+            <script type="text/javascript" th:inline="javascript">
+                /*<![CDATA[*/
+                $('.myCalendar').calendar({
+                    date: new Date(),
+                    autoSelect: false, // false by default
+                    select: function (date) {
+                        var pm = document.getElementById("pm");
+                        var am = document.getElementById("am");
+                        pm.style.display = "block";
+                        var mydate = new Date(date);
+                        var myEmailAddress = /*[[${myEmailAddress}]]*/ '';
+                        var selectedDate = mydate.getTime();
+                        $.ajax({
+                            url: "/getDateUpdate/" +
+                                myEmailAddress + "/" +
+                                selectedDate + "/",
+                            type: "GET",
+                            contentType: "application/json",
+                            dataType: 'json',
+                            success: function (result) {
+                                console.log("Results: " + result);
+                                var moring = "";
+                                var noon = "";
+                                var divide = (result.length) / 3;
+                                for (var i = 0; i < result.length; i++) {
+                                    if (result[i].isPm) {
+                                        pm.style.display = "block";
+
+                                        noon +=
+                                            '<tr><td><a type="button" href="#modal2" class="waves-effect waves-light modal-trigger mb-2 mr-1 btn" style="background-color: #009688; width:100%;margin:0px;padding:0px;"><span style="font-size: 15px;">' +
+                                            result[i].day +
+                                            '</span></a></td><td style="display:none;">' +
+                                            result[i].day +
+                                            '</td></tr>';
+                                    } else {
+                                        am.style.display = "block";
+
+                                        moring +=
+                                            '<tr><td><a type="button" href="#modal2" class="waves-effect waves-light modal-trigger mb-2 mr-1 btn" style="background-color: #009688; width:100%;margin:0px;padding:0px;"><span style="font-size: 15px;">' +
+                                            result[i].day +
+                                            '</span></a></td> <td style="display:none;">' +
+                                            result[i].day +
+                                            '</td></tr>';
+                                    }
+                                }
+                                $("#mornings tr").remove();
+                                $('#mornings').append(moring);
+                                $("#noons tr").remove();
+                                $('#noons').append(noon);
+                            },
+                            error: function (e) {
+                                alert("Error!")
+                                console.log("ERROR: ", e);
+                            }
+                        });
+                    },
+                    toggle: function (y, m) {
+                        console.log('TOGGLE', y, m)
+                    }
+                });
+
+                $(document).ready(function () {
+                    document.getElementById('mornings').onclick = function (event) {
+
+                        event = event || window.event; //for IE8 backward compatibility
+                        var target = event.target || event.srcElement; //for IE8 backward compatibility
+                        while (target && target.nodeName != 'TR') {
+                            target = target.parentElement;
+                        }
+                        var cells = target.cells; //cells collection
+                        //var cells = target.getElementsByTagName('td'); //alternative
+                        if (!cells.length || target.parentNode.nodeName ==
+                            'THEAD') { // if clicked row is within thead
+                            return;
+                        }
+
+                        var newcxcxc = cells[1].innerHTML;
+                        var d = new Date(newcxcxc);
+                        $('#mydate').val(cells[1].innerHTML);
+                        if (d.getMinutes() == 0) {
+                            if (d.getHours() >= 12) {
+                                $('#starting').val(d.getHours() + ":" + "00");
+                                $('#ending').val(d.getHours() + ":" + 30);
+                            } else {
+                                $('#starting').val(d.getHours() + ":" + "00");
+                                $('#ending').val(d.getHours() + ":" + 30);
+                            }
+
+                        } else {
+                            if (d.getHours() >= 12) {
+                                $('#starting').val(d.getHours() + ":" + 30);
+                                $('#ending').val((d.getHours() + 1) + ":" + "00");
+                            } else {
+                                $('#starting').val(d.getHours() + ":" + 30);
+                                $('#ending').val((d.getHours() + 1) + ":" + "00");
+                            }
+                        }
+
+                    }
+
+                    document.getElementById('noons').onclick = function (event) {
+                        event = event || window.event; //for IE8 backward compatibility
+                        var target = event.target || event.srcElement; //for IE8 backward compatibility
+                        while (target && target.nodeName != 'TR') {
+                            target = target.parentElement;
+                        }
+                        var cells = target.cells; //cells collection
+                        //var cells = target.getElementsByTagName('td'); //alternative
+                        if (!cells.length || target.parentNode.nodeName ==
+                            'THEAD') { // if clicked row is within thead
+                            return;
+                        }
+
+                        var newcxcxc = cells[1].innerHTML;
+                        var d = new Date(newcxcxc);
+
+                        $('#mydate').val(cells[1].innerHTML);
+
+                        if (d.getMinutes() == 0) {
+                            if (d.getHours() >= 12) {
+                                $('#starting').val(d.getHours() + ":" + "00");
+                                $('#ending').val(d.getHours() + ":" + 30);
+                            } else {
+                                $('#starting').val(d.getHours() + ":" + "00");
+                                $('#ending').val(d.getHours() + ":" + 30);
+                            }
+
+                        } else {
+                            if (d.getHours() >= 12) {
+                                $('#starting').val(d.getHours() + ":" + 30);
+                                $('#ending').val((d.getHours() + 1) + ":" + "00");
+                            } else {
+                                $('#starting').val(d.getHours() + ":" + 30);
+                                $('#ending').val((d.getHours() + 1) + ":" + "00");
+                            }
+                        }
+
+                    }
+
+                    $("#make_appointment").click(function () {
+
+                        var token = $("meta[name='_csrf']").attr("content");
+
+                        var startingTime = $('#starting').val();
+                        var endingTime = $('#ending').val();
+                        var myDate = $('#mydate').val();
+                        var description = $('#description').val();
+                        var emailAddress = $('#email').val();
+                        var fullname = $('#fullname').val();
+                        var phoneNumber = $('#phonenumber').val();
+                        var title = $('#title').val();
+                        var organisation = $('#organisation').val();
+                        var selectdate = new Date(myDate);
+                        var myEmailAddress = /*[[${myEmailAddress}]]*/ '';
+
+                        alert("Appointment Booked");
+
+                        var Appointment = {
+                            id: null,
+                            myEmail: null,
+                            selectedDate: selectdate.getTime(),
+                            selectedTo: endingTime,
+                            titile: title,
+                            email: emailAddress,
+                            name: fullname,
+                            phoneNumber: phoneNumber,
+                            organisation: organisation,
+                            description: description
+                        }
+                        $.ajax({
+                            url: "/makeAppointment/" + myEmailAddress + "/test",
+                            headers: {
+                                "X-XSRF-TOKEN": token,
+                            },
+                            data: JSON.stringify(Appointment),
+                            type: "POST",
+                            contentType: "application/json",
+                            dataType: 'json',
+                            success: function (result) {
+                                location.reload();
+                            },
+                            error: function (e) {
+                                console.log("ERROR: ", e);
+                            }
+                        });
+
+                        console.log("++++" + selectdate.getTime() + "++++");
+                        console.log(startingTime);
+                        console.log(endingTime);
+                        console.log(myDate);
+                        console.log(description);
+                        console.log(emailAddress);
+                        console.log(fullname);
+                        console.log(phoneNumber);
+
+                    });
+                });
+                /*]]>*/
+
+            </script>
+
+            <!--         <th:block th:replace="fragments/footer :: footer"></th:block> -->
+            <th:block th:include="fragments/js-content :: js-content"></th:block>
+</body>
+
+</html>

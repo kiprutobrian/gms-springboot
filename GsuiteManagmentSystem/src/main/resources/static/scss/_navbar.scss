@@ -1,0 +1,150 @@
+/*----------------------------------------
+  Navbar Style
+------------------------------------------*/
+.navbar-custom {
+    height: 9rem;
+
+    .nav-item {
+        &:not(:last-child) {
+            margin-right: 3rem;
+        }
+    }
+
+    .dropdown {
+        height: 45px;
+        width: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover,
+        [aria-expanded=true] {
+            outline: none;
+            border-radius: 50%;
+            background-color: rgba(95, 99, 104, 0.24);
+        }
+
+        .dropdown-toggle {
+
+            .bell {
+                height: 25px;
+                width: 25px;
+            }
+
+            .avatar-sm {
+                background-color: rgba(0, 0, 0, 0.5);
+                height: 32px;
+                width: 32px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin: 0;
+            }
+
+            &::after {
+                content: unset;
+            }
+        }
+
+        .dropdown-menu {
+            margin: 25px 3px 0 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
+            background: #fff;
+            border: 1px solid #ccc;
+
+            .dropdown-item-profile {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #fff;
+
+                &:hover,
+                &:focus,
+                &:active {
+                    color: #fff;
+                    text-decoration: none;
+                    background-color: transparent;
+                }
+
+                .prof {
+                    margin: 20px 33px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+
+                    .avatar-lg {
+                        background-color: rgba(0, 0, 0, 0.5);
+                        height: 80px;
+                        width: 80px;
+                        border-radius: 50%;
+                        overflow: hidden;
+                        margin: 0;
+
+                        .pic {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+
+                    .text-box {
+                        margin-top: 3rem;
+                        display: block;
+                        text-align: center;
+
+                        .h3 {
+                            color: #202124;
+                            font-size: 1.6rem;
+                        }
+
+                        p {
+                            color: #5f6368;
+                            font-size: 1.4rem;
+                        }
+
+                        .btn-link {
+                            background-color: #ffffff;
+                            border: 1px solid #dadce0;
+                            border-radius: 100px;
+
+                            font-size: 1.4rem;
+                            color: #3c4043;
+                            display: inline-block;
+                            margin: 16px 0 0;
+                            max-width: 254px;
+                            outline: 0;
+                            padding: 8px 16px;
+                            text-align: center;
+                            text-decoration: none;
+                            text-overflow: ellipsis;
+                            overflow: hidden;
+
+                            &:hover {
+                                background-color: #f7f8f8;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .dropdown-item {
+            font-size: 1.4rem;
+            color: #3c4043;
+            padding: 0.6rem 3rem;
+
+            &:hover, 
+            &:focus,   
+            &:active {
+                background-color: #f7f8f8; 
+            }
+        }
+
+        .pic {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}

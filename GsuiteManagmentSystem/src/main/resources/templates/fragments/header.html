@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html class="loading" lang="en" data-textdirection="ltr">
+
+<body>
+    <nav class="navbar navbar-custom  navbar-expand-lg align-items-center bg-light w-100" th:fragment="header">
+        <div class="navbar-collapse custom-search-clear">
+            <div class="col-4 input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text material-icons">
+                        search
+                    </span>
+                </div>
+                <input type="text" class="form-control" placeholder="Explore GMS" aria-label="Explore GMS">
+            </div>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" type="button" data-toggle="collapse" data-target="#notification"
+                        aria-controls="notification" aria-expanded="false" aria-label="notification">
+                        <img src="/app-assets/images/icon/bell.svg" alt="pic" class="bell">
+                    </a>
+                    <div class="main-menu collapse" id="notification">                        
+                        <div class="main-menu-content">
+                            <ul class="navigation">
+                                <li class=" nav-item">
+                                    <a class="nav-link" href="#">
+                                        <span class="mr-sm material-icons">
+                                            insert_emoticon
+                                        </span>
+                                        <span class="menu-title">Email</span>
+                                    </a>
+                                </li>
+                                <li class=" nav-item">
+                                    <a class="nav-link" href="#">
+                                        <span class="mr-sm material-icons">
+                                            insert_emoticon
+                                        </span>
+                                        <span class="menu-title">Chat</span>
+                                    </a>
+                                </li>
+                                <li class=" nav-item">
+                                    <a class="nav-link" href="#">
+                                        <span class="menu-title">Documentation</span>
+                                    </a>
+                                </li>
+                                <li class=" nav-item">
+                                    <a class="nav-link" href="#">
+                                        <span class="mr-sm material-icons">
+                                            insert_emoticon
+                                        </span>
+                                        <span class="menu-title">Raise Support</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown-menu" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <div class="avatar-sm">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=046c29138c1335ef8edee7daf521ba50"
+                                alt="pic" class="pic">
+                        </div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-menu">
+                        <div class="dropdown-item dropdown-item-profile">
+                            <div class="prof">
+                                <div class="avatar-lg">
+                                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=046c29138c1335ef8edee7daf521ba50"
+                                        alt="pic" class="pic">
+                                </div>
+                                <div class="text-box">
+                                    <h3 class="h3">brian kip</h3>
+                                    <p>briankip2020@gmail.com</p>
+                                    <a class="btn-link" href="#" target="_blank">
+                                        Manage your G-suite Account
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- <div class="sidenav-overlay" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+        aria-expanded="false" aria-label="Main menu">
+    </div> -->
+</body>
+
+</html>

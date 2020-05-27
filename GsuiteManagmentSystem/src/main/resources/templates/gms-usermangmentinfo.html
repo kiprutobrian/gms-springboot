@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+<div th:replace="fragments/header-css :: header-css"></div>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <th:block th:replace="fragments/leftnav :: leftnav"></th:block>
+            <!-- END: SideNav -->
+
+
+            <!-- BEGIN: Page Main-->
+            <main class="col">
+                <div class="row">
+                    <th:block th:replace="fragments/header :: header"></th:block>
+                </div>
+
+                <div class="row">
+                    <div class="container-gms">
+                        <div class="table-top">
+                            <!-- <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb pl-0">
+                                    <li class="breadcrumb-item">
+                                        <a class="d-flex" href="#">
+                                            Home
+                                            <span class="material-icons">
+                                                keyboard_arrow_right
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="breadcrumb-item active" aria-current="page">View Profile
+                                    </li>
+                                </ol>
+                            </nav> -->
+                            <h2 class="h2 pl-0"> View Profile</h2>
+                        </div>
+
+
+
+                        <div id="progress" style="display: none;">
+                            <div class="progress">
+                                <div class="indeterminate"></div>
+                            </div>
+                        </div>
+                        <div id="alerts"></div>
+                        <div class="card-alert card green right" id="onsuccess" style="display: none; width: 40%;">
+                            <div class="card-content white-text">
+                                <span class="card-title white-text darken-1"> <i
+                                        class="material-icons">notifications</i>G-Suite User Management
+                                </span>
+                                <div id="message"></div>
+                            </div>
+                            <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close"
+                                id="cancel">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+
+
+
+
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#basicInfo" role="tab"
+                                    aria-controls="home" aria-selected="true">Account
+                                    Information</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#DelegatesAliases"
+                                    role="tab" aria-controls="profile" aria-selected="false">Aliases &
+                                    Delegates</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#others" role="tab"
+                                    aria-controls="profile" aria-selected="false">Signature &
+                                    Other settings</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="basicInfo" role="tabpanel"
+                                aria-labelledby="home-tab">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card">
+                                            <div class="card-content pt-5 pb-5 pl-5 pr-5">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <form class="row form-row">
+                                                            <div class=" form-group col-md-6">
+                                                                <input class="form-control" th:value="${accountId}"
+                                                                    id="accountId" type="text" style="display: none;">
+                                                                <label class="text-dark" for="familyname">Family
+                                                                    Name</label>
+                                                                <input class="form-control validate"
+                                                                    th:value="${familyName}" id="familyname"
+                                                                    type="text">
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label class="text-dark" for="givenName">Given
+                                                                    Name</label>
+                                                                <input class="form-control" id="givenName" type="text"
+                                                                    th:value="${givenName}">
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label class="text-dark" for="emailName">Email
+                                                                    Name</label>
+                                                                <input class="right form-control" id="emailName"
+                                                                    type="text" th:value="${emailName}">
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label class="text-dark" for="domain">Domain</label>
+                                                                <input placeholder="Placeholder" id="domain" type="text"
+                                                                    class="form-control validate" th:value="${domain}"
+                                                                    readonly="readonly">
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label class="text-dark" for="jobtitle">Job
+                                                                    Title</label>
+                                                                <input placeholder="Placeholder" id="jobtitle"
+                                                                    type="text" class="form-control validate"
+                                                                    th:value="${jobtitle}">
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label class="text-dark" for="phonenumber">Phone
+                                                                    Number</label>
+                                                                <input class="form-control" id="phonenumber" type="text"
+                                                                    th:value="${phonenumber}">
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <button type="button" class="btn btn-lg btn-success"
+                                                                    id="update_account">Update Account</button>
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <button type="button" class="btn btn-lg btn-danger"
+                                                                    id="password_reset">Password Reset</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="DelegatesAliases" role="tabpanel"
+                                aria-labelledby="profile-tab">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card">
+                                            <div class="card-content pt-5 pb-5 pl-5 pr-5">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="right">
+                                                            <br>
+                                                            <div class="dropdown show mb-5">
+                                                                <a class="btn btn-secondary dropdown-toggle" href="#"
+                                                                    role="button" id="dropdown1" data-toggle="dropdown"
+                                                                    aria-haspopup="true" aria-expanded="false">
+                                                                    Aliases Setting
+                                                                </a>
+
+                                                                <div class="dropdown-menu" aria-labelledby="dropdown1">
+                                                                    <a class="dropdown-item" id="addalias">Add</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <table id="aliases_tb">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th class="text-dark">Aliases(List of aliases)
+                                                                    </th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr th:each="String : ${aliasesList}">
+                                                                    <td class="text-dark" th:inline="text">
+                                                                        [[${String}]]</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="right" style="margin: 0px; padding: 0px;">
+                                                            <div class="right mb-5"
+                                                                th:if="${Services.isMaildelegation()}">
+                                                                <br>
+                                                                <div class="dropdown show">
+                                                                    <a class="btn btn-secondary dropdown-toggle"
+                                                                        href="#" role="button" id="dropdown_delegates"
+                                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                                        aria-expanded="false">
+                                                                        Delegation Setting
+                                                                    </a>
+
+                                                                    <div class="dropdown-menu"
+                                                                        aria-labelledby="dropdown_delegates">
+                                                                        <a class="dropdown-item" href="#">Add</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <table id="delegate_tb">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th class="text-dark">Delegate(The email address
+                                                                        of the delegate)
+                                                                    </th>
+                                                                    <th class="text-dark">Action</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr th:each="Delegate : ${delegateList}">
+                                                                    <td class="text-dark" th:inline="text">
+                                                                        [[${Delegate.delegateEmail}]]
+                                                                    </td>
+                                                                    <td class="delegatedelete">
+                                                                        <!-- <i class="material-icons">delete_forever</i> -->
+                                                                        <button class="btn btn-sm btn-danger mt-2
+                                                                            ">Delete</button>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="others" role="tabpanel" aria-labelledby="contact-tab">
+                                <div class="row">
+                                    <div class="col-md-12" th:object="${TemplateType}">
+                                        <div id="input-fields" class="card">
+                                            <div class="card-content pt-5 pl-5 pr-5 pb-5">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <h2 class="text-dark">SIGNATURE</h2>
+                                                        <div class="right">
+                                                            <div class="dropdown show">
+                                                                <a class="btn btn-secondary dropdown-toggle" href="#"
+                                                                    role="button" id="dropdown_signature"
+                                                                    data-toggle="dropdown" aria-haspopup="true"
+                                                                    aria-expanded="false">
+                                                                    Signature Setting
+                                                                </a>
+
+                                                                <div class="dropdown-menu"
+                                                                    aria-labelledby="dropdown_signature">
+                                                                    <a class="dropdown-item"
+                                                                        id="signatureUpdate">Update</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <hr>
+                                                        <div class="">
+                                                            <div class="text-dark" th:if="${TemplateType}"
+                                                                id="signature" th:utext="${TemplateType.signature}">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 m6 l6">
+                                                        <h2 class="text-dark"> MARKETING</h2>
+                                                        <div class="right">
+                                                            <div class="dropdown show">
+                                                                <a class="btn btn-secondary dropdown-toggle" href="#"
+                                                                    role="button" id="dropdown_marketing"
+                                                                    data-toggle="dropdown" aria-haspopup="true"
+                                                                    aria-expanded="false">
+                                                                    Marketing Setting
+                                                                </a>
+
+                                                                <div class="dropdown-menu"
+                                                                    aria-labelledby="dropdown_marketing">
+                                                                    <a class="dropdown-item" href="#">Update</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <hr>
+                                                        <div class="">
+                                                            <div class="text-dark" th:if="${TemplateType}"
+                                                                id="marketing" th:utext="${TemplateType.marketing}">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 m6 l6" th:if="${TemplateType}">
+                                                        <h2 class="text-dark">CALENDER APPPOINTMENT</h2>
+                                                        <div class="right">
+
+
+
+                                                            <div class="dropdown show">
+                                                                <a class="btn btn-secondary dropdown-toggle" href="#"
+                                                                    role="button" id="dropdown_calender"
+                                                                    data-toggle="dropdown" aria-haspopup="true"
+                                                                    aria-expanded="false">
+                                                                    Aliases Setting
+                                                                </a>
+
+                                                                <div class="dropdown-menu"
+                                                                    aria-labelledby="dropdown_calender">
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input type="checkbox"
+                                                                            class="custom-control-input"
+                                                                            id="customCheck1">
+                                                                        <label class="custom-control-label"
+                                                                            for="customCheck1">On</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <hr>
+                                                        <div class="text-dark" th:if="${TemplateType}" id="calender"
+                                                            th:utext="${TemplateType.calender}"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+                <div id="adding_model" class="modal">
+                    <div class="modal-header"></div>
+                    <div class="modal-content ">
+                        <div class="row">
+                            <div class="col-md-12" style="margin: 0px; padding: 0px;">
+                                <div class="input-field col-md-12">
+                                    <div id="headermessage"></div>
+                                </div>
+
+                                <div class="input-field col-md-12">
+                                    <input id="accountemailaddress" th:value="${emailName}" type="text" class="validate"
+                                        readonly="readonly"> <label for="stage_amount">Account</label>
+                                </div>
+
+                                <div class="input-field col-md-12" id="alias_div" style="display: none;">
+                                    <input id="alias_address" value="" type="text" class="validate">
+                                    <label for="alias_address">Alias Email Address</label>
+                                </div>
+
+                                <div id="delegate_div" class="input-field col-md-12" style="display: none;">
+                                    <select id="potential_delegates" class="browser-default">
+                                        <option value="" disabled selected>Choose Account</option>
+                                        <option th:each="User : ${potentailDelegate}" th:value="${User.id}"
+                                            th:text="${User.primaryEmail}"></option>
+                                    </select>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="modal-action modal-close waves-effect waves-green btn-flat" id="add_acount">Add
+                            Account</button>
+                    </div>
+                </div>
+
+            </main>
+
+
+            <div id="passwordreset_model" class="modal">
+                <div class="modal-content">
+                    <div class="row">
+                        <div class="input-field col-md-12">
+                            <p>PASSWORD RESET</p>
+                            <br>
+                        </div>
+
+                        <div class="input-field col-md-6">
+                            <input id="phonenumber_reset" value=" " type="text" class="validate"> <label
+                                for="phonenumber_reset">Phone
+                                number to send the new password</label>
+                        </div>
+                        <div class="input-field col-md-6">
+                            <p>
+                                <label> <input type="checkbox" checked="checked" /> <span>Request
+                                        Change On NextLogIn</span>
+                                </label>
+                            </p>
+                        </div>
+
+                        <div class="input-field col-md-12">
+                            <input id="newpassword_reset" value=" " type="text" class="validate"> <label
+                                for="newpassword_reset">New
+                                Password</label>
+                        </div>
+                        <br>
+                        <button id="resetpass" type="button" class="btn right">Reset</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+            <div id="signatureupdate_model" class="modal bottom-sheet">
+                <div class="modal-content">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <table id="signaturetemplate_table" style="width: 100%">
+                                <thead>
+                                    <tr>
+                                        <th>Template ID</th>
+                                        <th>Template Name</th>
+                                        <th style="display: none;" hidden="hidden"></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="SignatureTemplate : ${domainsignatures}">
+                                        <td th:text="${SignatureTemplate.getId()}"></td>
+                                        <td th:text="${SignatureTemplate.getName()}"></td>
+                                        <td style="display: none;" hidden="hidden"
+                                            th:text="${SignatureTemplate.getSignatureBody()}"></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            <p style="margin: 0px; padding: 0px;">Signature Templates</p>
+                            <br>
+                            <div id="signature_template_selected"></div>
+                            <button class="btn  right" id="signatureupdatetemplate">Apply</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer"></div>
+            </div>
+
+            <div id="marketingupdate_model" class="modal bottom-sheet">
+                <div class="modal-content">
+                    <div class="row">
+
+                        <div class="col-md-6">
+
+                            <table id="marketingtemplate_table" style="width: 100%">
+                                <thead>
+                                    <tr>
+                                        <th>Template ID</th>
+                                        <th>Template Name</th>
+                                        <th style="display: none;" hidden="hidden"></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="MarketingTemplate : ${domainmarketing}">
+                                        <td th:text="${MarketingTemplate.getId()}"></td>
+                                        <td th:text="${MarketingTemplate.getName()}"></td>
+                                        <td style="display: none;" hidden="hidden"
+                                            th:text="${MarketingTemplate.getMarketingBody()}"></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            <p style="margin: 0px; padding: 0px;">Marketing Templates</p>
+                            <br>
+                            <div id="market_template_selected"></div>
+                            <button class="btn right" id="marketingupdatetemplate">Apply</button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer"></div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <!--         <th:block th:replace="fragments/footer :: footer"></th:block> -->
+    <th:block th:include="fragments/js-content :: js-content"></th:block>
+</body>
+
+</html>

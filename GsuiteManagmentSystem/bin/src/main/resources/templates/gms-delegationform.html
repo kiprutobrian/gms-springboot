@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<!--
+Template Name: Materialize - Material Design Admin Template
+Author: PixInvent
+Website: http://www.pixinvent.com/
+Contact: hello@pixinvent.com
+Follow: www.twitter.com/pixinvents
+Like: www.facebook.com/pixinvents
+Purchase: https://1.envato.market/materialize_admin
+Renew Support: https://1.envato.market/materialize_admin
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+
+-->
+<html class="loading" lang="en" data-textdirection="ltr"
+	xmlns:th="http://www.thymeleaf.org">
+<!-- BEGIN: Head-->
+
+<!-- Mirrored from pixinvent.com/materialize-material-design-admin-template/html/ltr/vertical-modern-menu-template/form-elements.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Sep 2019 06:15:57 GMT -->
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+<meta name="description"
+	content="Materialize is a Material Design Admin Template,It's modern, responsive and based on Material Design by Google.">
+<meta name="keywords"
+	content="materialize, admin template, dashboard template, flat admin template, responsive admin template, eCommerce dashboard, analytic dashboard">
+<meta name="author" content="ThemeSelect">
+<meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}" />
+<title>Form Elements | Materialize - Material Design Admin
+	Template</title>
+<link rel="apple-touch-icon"
+	href="/app-assets/images/favicon/apple-touch-icon-152x152.png">
+<link rel="shortcut icon" type="image/x-icon"
+	href="/app-assets/images/favicon/favicon-32x32.png">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<!-- BEGIN: VENDOR CSS-->
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/vendors/vendors.min.css">
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/vendors/flag-icon/css/flag-icon.min.css">
+<link rel="stylesheet"
+	href="/app-assets/vendors/noUiSlider/nouislider.min.css"
+	type="text/css">
+<!-- END: VENDOR CSS-->
+
+<link rel="stylesheet" type="text/css"
+	href="./app-assets/vendors/sweetalert/sweetalert.css">
+
+<!-- BEGIN: Page Level CSS-->
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/css/themes/vertical-modern-menu-template/materialize.css">
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/css/themes/vertical-modern-menu-template/style.css">
+<!-- END: Page Level CSS-->
+<!-- BEGIN: Custom CSS-->
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/css/custom/custom.css">
+<!-- END: Custom CSS-->
+</head>
+<!-- END: Head-->
+
+<body
+	class="vertical-layout vertical-menu-collapsible page-header-dark vertical-modern-menu 2-columns  "
+	data-open="click" data-menu="vertical-modern-menu" data-col="2-columns" th:object="${authUser}">
+
+<!-- 	<!-- BEGIN: Header-->
+	<th:block th:utext="${header}"></th:block>
+	<!--  END: Header -->
+
+	<!-- BEGIN: SideNav -->
+	<th:block th:utext="${sidenaveMenu}"></th:block>
+	<!-- END: SideNav -->
+	
+
+
+
+	<!-- BEGIN: Page Main-->
+	<div id="main">
+		<div class="row">
+			<div class="container">
+				<div class="col s12">
+					<div id="progress" style="display: none;">
+						<div class="progress">
+							<div class="indeterminate"></div>
+						</div>
+					</div>
+					<div id="alerts"></div>
+					<div class="card-alert card green right" id="onsuccess"
+						style="display: none; width: 40%;">
+						<div class="card-content white-text">
+							<span class="card-title white-text darken-1"> <i
+								class="material-icons">notifications</i>Account Delegation
+							</span>
+							<div id="message"></div>
+						</div>
+						<button type="button" class="close white-text"
+							data-dismiss="alert" aria-label="Close" id="cancel">
+							<span aria-hidden="true">×</span>
+						</button>
+					</div>
+				</div>
+
+				<div class="col s12" style="background-color: white;">
+					<!-- Input Fields -->
+					<div class="col s4">
+						<div id="icon-prefixes-two" class="card card-tabs">
+							<div class="card-content">
+								<div id="view-icon-prefixes-two">
+									<div class="row">
+										<div class="col s12 center-align">
+											<img class="responsive-img circle z-depth-5" width="100"
+												src="/app-assets/images/user/12.jpg" alt="">
+
+											<p></p>
+										</div>
+										<form class="col s12">
+											<div class="row">
+												<div class="input-field col s12">
+
+													<hr>
+
+													<div class="col s4">
+														<p>Email</p>
+													</div>
+													<div class="col s8">
+														<p th:inline="text">[[${delemail}]]</p>
+													</div>
+
+													<div class="col s4">
+														<p>User Name</p>
+													</div>
+													<div class="col s8">
+														<p th:inline="text">[[${delusername}]]</p>
+													</div>
+
+													<div class="col s4">
+														<p>Delegates</p>
+													</div>
+													<div class="col s8">
+														<p th:inline="text">[[${DelegatesNumber}]]</p>
+													</div>
+
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+					<div class="col s8">
+						<div class="input-field ">
+							<div class="col s8">
+								<select id="package" class="package">
+									<option value="0" disabled selected>Choose An Account
+										To delegate the above account</option>
+									<option th:each="User : ${domainUser}"
+										th:value="${User.getId()}" th:inline="text">[[${User.getPrimaryEmail()}]]</option>
+								</select>
+							</div>
+							<div class="col s4">
+								<button id="delegatebutton"
+									class="btn gradient-45deg-blue-indigo right" type="submit">Add
+									Delegate</button>
+								<br>
+							</div>
+							<div class="col s12">
+								<h6 style="color: black;">ACCOUNT DELEGATES</h6>
+								<ul class="collection" th:each="Delegate : ${deligateList}">
+									<li class="collection-item ">
+										<div class="m-0 ">
+											<div class="col s6">
+												<h6 th:inline="text">[[${Delegate.getDelegateEmail()}]]</h6>
+											</div>
+											<div class="col s6">
+												<div class="switch right">
+													<a class="material-icons"
+														th:href="@{/RemoveDelegateAccount/} + ${Delegate.getDelegateEmail()}+lg+${delemail}+@{/}+${id}">cancel</a>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- END: Page Main-->
+
+	<!-- BEGIN VENDOR JS-->
+	<script src="/app-assets/js/vendors.min.js" type="text/javascript"></script>
+	<!-- BEGIN VENDOR JS-->
+	<!-- BEGIN PAGE VENDOR JS-->
+	<script src="/app-assets/vendors/noUiSlider/nouislider.js"
+		type="text/javascript"></script>
+	<!-- END PAGE VENDOR JS-->
+	<!-- BEGIN THEME  JS-->
+	<script src="/app-assets/js/plugins.js" type="text/javascript"></script>
+	<script src="/app-assets/js/custom/custom-script.js"
+		type="text/javascript"></script>
+	<script src="/app-assets/js/scripts/customizer.js"
+		type="text/javascript"></script>
+	<!-- END THEME  JS-->
+	<script src="/app-assets/vendors/sweetalert/sweetalert.min.js"></script>
+
+	<script src="/app-assets/js/scripts/ui-alerts.js"
+		type="text/javascript"></script>
+	<!-- BEGIN PAGE LEVEL JS-->
+	<script src="/app-assets/js/scripts/form-elements.js"></script>
+	<!-- END PAGE LEVEL JS-->
+
+	<script type="text/javascript" th:inline="javascript">
+		/*<![CDATA[*/
+
+		$(document).ready(function() {
+
+			var token = $("meta[name='_csrf']").attr("content");
+			var userId = /*[[${delemail}]]*/'';
+
+			$("#delegatebutton").click(function() {
+				var delegateEmail = $('#package').find(":selected").text();
+				var UpdateDirectory = {
+					id : userId,
+					givenName : null,
+					fullname : null,
+					familyname : null,
+					emailAdress : delegateEmail,
+					imageUrl : null,
+					createdById : null,
+				}
+				console.log(UpdateDirectory);
+
+				$.ajax({
+					url : "/processDeligationAccount",
+					headers : {
+						"X-XSRF-TOKEN" : token,
+					},
+					data : JSON.stringify(UpdateDirectory),
+					type : "POST",
+					contentType : "application/json",
+					dataType : 'json',
+					success : function(result) {
+						location.reload();
+					},
+					error : function(e) {
+						console.log("ERROR: ", e);
+					}
+				});
+
+			});
+
+		});
+		/*]]>*/
+	</script>
+
+
+</body>
+
+<!-- Mirrored from pixinvent.com/materialize-material-design-admin-template/html/ltr/vertical-modern-menu-template/form-elements.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Sep 2019 06:15:58 GMT -->
+
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+<div th:replace="fragments/header-css :: header-css"></div>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <th:block th:replace="fragments/leftnav :: leftnav"></th:block>
+            <!-- END: SideNav -->
+
+
+
+            <!-- BEGIN: Page Main-->
+            <main class="col">
+                <div class="row">
+                    <div class="container-gms">
+                        <div class="col-md-12">
+                            <div id="progress" style="display: none;">
+                                <div class="progress">
+                                    <div class="indeterminate"></div>
+                                </div>
+                            </div>
+                            <div id="alerts"></div>
+                            <div class="card-alert card green right" id="onsuccess" style="display: none; width: 40%;">
+                                <div class="card-content white-text">
+                                    <span class="card-title white-text darken-1"> <i
+                                            class="material-icons">notifications</i>Domain Drive
+                                    </span>
+                                    <div id="message"></div>
+                                </div>
+                                <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close"
+                                    id="cancel">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col s12">
+                            <div style="display: none;"
+                                class="col s12 m12 l12  card user-card-negative-margin z-depth-0">
+
+                                <div class="row mt-4">
+                                    <div class="col s12 center-align">
+                                        <img class="responsive-img circle z-depth-5" width="100"
+                                            src="/app-assets/images/user/12.jpg" alt=""> <input type="text"
+                                            th:value="${selectedUserEmail}" id="selectedUserEmail" readonly="readonly">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- User Post Feed -->
+                            <div class="col s12 m12 l12">
+                                <div class="row">
+                                    <div class="card user-card-negative-margin z-depth-0" id="feed">
+                                        <div class="card-content card-border-gray">
+                                            <div class="row">
+                                                <div class="col s12 m6 l6 xl4">
+                                                    <div
+                                                        class="card gradient-45deg-blue-indigo gradient-shadow min-height-100 white-text animate fadeLeft">
+                                                        <div class="padding-4">
+                                                            <div class="col s4 m4">
+                                                                <i
+                                                                    class="material-icons background-round mt-5">folder_open</i>
+                                                            </div>
+                                                            <div class="col s8 m8 ">
+                                                                <p>Owned By</p>
+                                                                <p th:text="${selectedUserEmail}"></p>
+                                                                <h6 class="no-margin left-align">
+                                                                    <span style="color: white;" th:inline="text"> :
+                                                                        [[${mydrivefilessize}]]</span>
+                                                                </h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col s12 m6 l6 xl4">
+                                                    <div
+                                                        class="card gradient-45deg-blue-indigo gradient-shadow min-height-100 white-text animate fadeLeft">
+                                                        <div class="padding-4">
+                                                            <div class="col s4 m4">
+                                                                <i
+                                                                    class="material-icons background-round mt-5">folder_open</i>
+                                                            </div>
+                                                            <div class="col s8 m8 ">
+                                                                <p>Shared by</p>
+                                                                <p th:text="${selectedUserEmail}"></p>
+                                                                <h6 class="no-margin left-align">
+                                                                    <span style="color: white;" th:inline="text">
+                                                                        [[${sharedbymeSize}]]</span>
+                                                                </h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col s12 m6 l6 xl4">
+                                                    <div
+                                                        class="card gradient-45deg-blue-indigo gradient-shadow min-height-100 white-text animate fadeLeft">
+                                                        <div class="padding-4">
+                                                            <div class="col s4 m4">
+                                                                <i
+                                                                    class="material-icons background-round mt-5">folder_open</i>
+                                                            </div>
+                                                            <div class="col s8 m8 ">
+                                                                <p>Shared with</p>
+                                                                <p th:text="${selectedUserEmail}"></p>
+                                                                <h6 class="no-margin left-align">
+                                                                    <span style="color: white;" th:inline="text">
+                                                                        [[${sharedwithmeSize}]]</span>
+                                                                </h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col s12">
+                                                    <ul class="collapsible" data-collapsible="accordion">
+                                                        <li>
+                                                            <div class="collapsible-header">
+                                                                <i class="material-icons">folder_open</i>My Files &
+                                                                Folders
+                                                            </div>
+                                                            <div class="collapsible-body"
+                                                                style="margin: 0px; padding: 0px; width: 100%;">
+                                                                <table id="mydrivefiles"
+                                                                    style="margin-top: 10px; margin-bottom: 10px; width: 100%;">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th style="width: 30px;"></th>
+                                                                            <th style="display: none;">ID</th>
+                                                                            <th style="display: none;">Permission Id
+                                                                            </th>
+                                                                            <th>File Name</th>
+                                                                            <th>Type</th>
+                                                                            <th>Setting</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <!-- style="display:none; -->
+                                                                        <tr th:each="File : ${mydrivefiles}">
+                                                                            <td style="width: 30px;"></td>
+                                                                            <td style="display: none;"
+                                                                                th:text="${File.id}"></td>
+                                                                            <td style="display: none;"
+                                                                                th:text="${File.name}"></td>
+                                                                            <td th:text="${File.name}"></td>
+                                                                            <td th:text="${File.mimeType}"></td>
+                                                                            <td><a
+                                                                                    th:href="@{/getCurrentUserPermission/}+${selectedUserId}+@{/}+${File.id}">Open</a>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+
+                                                        </li>
+                                                        <li>
+                                                            <div class="collapsible-header">
+                                                                <i class="material-icons">folder_open</i>Files & Folders
+                                                                Shared with me
+                                                            </div>
+                                                            <div class="collapsible-body"
+                                                                style="margin: 0px; padding: 0px; width: 100%;">
+                                                                <div class="card user-card-negative-margin z-depth-0"
+                                                                    style="margin: 0px; padding: 0px; width: 100%;">
+                                                                    <div class="card-content card-border-gray"
+                                                                        style="margin: 0px; padding: 5px; width: 100%;">
+                                                                        <button class="btn right"
+                                                                            id="btn_sharedwithme">UNSHARE
+                                                                            WITH ME</button>
+
+                                                                        <table id="example"
+                                                                            style="margin-top: 10px; margin-bottom: 10px; width: 100%;">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th style="width: 30px;"></th>
+                                                                                    <th style="display: none;">ID</th>
+                                                                                    <th style="display: none;">
+                                                                                        Permission Id</th>
+                                                                                    <th>File Name</th>
+                                                                                    <th>Type</th>
+                                                                                    <th>Setting</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <!-- style="display:none; -->
+                                                                                <tr
+                                                                                    th:each="File : ${filesharedwithme}">
+                                                                                    <td style="width: 30px;"></td>
+                                                                                    <td style="display: none;"
+                                                                                        th:text="${File.id}"></td>
+                                                                                    <td style="display: none;"
+                                                                                        th:text="${File.name}"></td>
+                                                                                    <td th:text="${File.name}"></td>
+                                                                                    <td th:text="${File.mimeType}"></td>
+                                                                                    <td><a
+                                                                                            th:href="@{/getCurrentUserPermission/}+${selectedUserId}+@{/}+${File.id}">Open</a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="collapsible-header">
+                                                                <i class="material-icons">folder_open</i>Files & Folders
+                                                                Shared by me
+                                                            </div>
+                                                            <div class="collapsible-body"
+                                                                style="margin: 0px; padding: 0px; width: 100%;">
+                                                                <div class="card user-card-negative-margin z-depth-0"
+                                                                    style="margin: 0px; padding: 0px; width: 100%;">
+                                                                    <div class="card-content card-border-gray"
+                                                                        style="margin: 0px; padding: 5px; width: 100%;">
+
+                                                                        <button class="btn right"
+                                                                            id="bt_shreadbyme">UNSHARE</button>
+                                                                        <table id="sharedbymeexample"
+                                                                            style="margin-top: 10px; margin-bottom: 10px; width: 100%;">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th style="width: 30px;"></th>
+                                                                                    <th style="display: none;">ID</th>
+                                                                                    <th style="display: none;">
+                                                                                        Permission Id</th>
+                                                                                    <th>File Name</th>
+                                                                                    <th>Type</th>
+                                                                                    <th>Setting</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <!-- style="display:none; -->
+                                                                                <tr th:each="File : ${filesharedbyme}">
+                                                                                    <td style="width: 30px;"></td>
+                                                                                    <td style="display: none;"
+                                                                                        th:text="${File.id}"></td>
+                                                                                    <td style="display: none;"
+                                                                                        th:text="${File.name}"></td>
+                                                                                    <td th:text="${File.name}"></td>
+                                                                                    <td th:text="${File.mimeType}"></td>
+                                                                                    <td><a
+                                                                                            th:href="@{/getCurrentUserPermission/}+${selectedUserId}+@{/}+${File.id}">Open</a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <!-- END: Page Main-->
+        </div>
+    </div>
+
+    <!--         <th:block th:replace="fragments/footer :: footer"></th:block> -->
+    <th:block th:include="fragments/js-content :: js-content"></th:block>
+</body>
+
+</html>

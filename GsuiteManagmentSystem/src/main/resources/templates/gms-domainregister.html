@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+<div th:replace="fragments/header-css :: header-css"></div>
+
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <th:block th:replace="fragments/leftnav :: leftnav"></th:block>
+            <!-- END: Head-->
+
+            <main class="col">
+                <div class="row">
+                    <th:block th:replace="fragments/header :: header"></th:block>
+                </div>
+
+
+
+
+
+                <div class="row">
+                    <div class="container-gms">
+                        <div id="register-page" class="row">
+                            <div class="col-md-12 l12 z-depth-4 card-panel border-radius-6 register-card bg-opacity-8">
+                                <form th:object="${Company}">
+                                    <div class="col s6">
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <h5 class="ml-4">Domain</h5>
+                                                <p class="ml-4">Your domain information</p>
+                                            </div>
+                                        </div>
+                                        <div class="row margin" style="display: none;">
+                                            <div class="input-field col s6">
+                                                <i class="material-icons prefix pt-2">business</i> <input
+                                                    th:value="${Company.getCompanyId()}" id="companyId" type="text">
+                                                <label for="username" class="center-align">orgId</label>
+                                            </div>
+
+                                            <div class="input-field col s6">
+                                                <i class="material-icons prefix pt-2">domain</i> <input
+                                                    th:value="${userId}" id="userId" type="text"> <label
+                                                    for="email">UserId</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="row margin">
+                                            <div class="input-field col s6">
+                                                <i class="material-icons prefix pt-2">business</i> <input
+                                                    th:value="${Company.getName()}" id="username" type="text">
+                                                <label for="username" class="center-align">Organization</label>
+                                            </div>
+
+                                            <div class="input-field col s6">
+                                                <i class="material-icons prefix pt-2">domain</i> <input
+                                                    th:value="${Company.getDomain()}" id="domain" type="text">
+                                                <label for="email">Domain</label>
+                                            </div>
+                                        </div>
+                                        <div class="row margin">
+                                            <div class="input-field col s6">
+                                                <i class="material-icons prefix pt-2">flag</i> <input
+                                                    th:value="${Company.getCountryCode()}" id="countrycode" type="text">
+                                                <label for="countrycode">Country</label>
+                                            </div>
+
+                                            <div class="input-field col s6">
+                                                <i class="material-icons prefix pt-2">add_location</i> <input
+                                                    id="locality" type="text"> <label
+                                                    th:value="${Company.getLocality()}" for="locality">Locality</label>
+                                            </div>
+                                        </div>
+                                        <div class="row margin">
+                                            <div class="input-field col s6">
+                                                <i class="material-icons prefix pt-2">contact_mail</i> <input
+                                                    th:value="${Company.getEmail()}" id="contact_email" type="text">
+                                                <label for="contact_email">Contact
+                                                    Email</label>
+                                            </div>
+
+                                            <div class="input-field col s6">
+                                                <i class="material-icons prefix pt-2">contact_phone</i> <input
+                                                    th:value="${Company.getPhoneNumber()}" id="contact_phone"
+                                                    type="text"> <label for="contact_phone">Contact
+                                                    Phone</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="col s6">
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <h5 class="ml-4">Register</h5>
+                                            <p class="ml-4">Join to our community in G-suite Domain
+                                                Management</p>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row margin" th:if="${isverfied}">
+
+                                        <div class="input-field col m12 s12">
+                                            <select id="package" class="package">
+                                                <option value="0">Select Package:</option>
+                                                <option th:each="Package : ${packages}" th:value="${Package.getId()}"
+                                                    th:inline="text">
+                                                    [[${Package.getName()}]]</option>
+                                            </select> <label>Select Profile</label>
+                                        </div>
+
+
+                                        <div class="col m6 s12 file-field input-field">
+                                            <div class="btn float-right">
+                                                <span>.p12 File</span> <input type="file" id="p12file">
+                                            </div>
+                                            <div class="file-path-wrapper">
+                                                <input class="file-path validate" type="text">
+                                            </div>
+                                        </div>
+
+                                        <div class="col m6 s12 file-field input-field">
+                                            <div class="btn float-right">
+                                                <span>.json File</span> <input type="file" id="jsonfile">
+                                            </div>
+                                            <div class="file-path-wrapper">
+                                                <input class="file-path validate" type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <button id="onsubmit"
+                                                class="btn waves-effect waves-light  gradient-45deg-purple-deep-orange col s6 right">Register</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <p class="margin medium-small">
+                                                <a href="user-login.html">Already have an account? Login</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="intro">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="img-modal" class="modal white">
+                                <div class="modal-content">
+                                    <div class="bg-img-div"></div>
+                                    <p th:if="${isverfied}" class="modal-header right modal-close">
+                                        <span class="right"><i class="material-icons right-align">clear</i></span>
+                                    </p>
+                                    <p style="display: none;" class="modal-header right modal-close">
+                                        <label> <input id="ispresent" type="checkbox" th:checked="${isverfied}" />
+                                            <span></span>
+                                        </label>
+                                    </p>
+                                    <div class="carousel carousel-slider center intro-carousel">
+                                        <div class="carousel-fixed-item center middle-indicator">
+                                            <div class="left">
+                                                <button
+                                                    class="movePrevCarousel middle-indicator-text btn btn-flat purple-text waves-effect waves-light btn-prev">
+                                                    <i class="material-icons">navigate_before</i> <span
+                                                        class="hide-on-small-only">Prev</span>
+                                                </button>
+                                            </div>
+                                            <div class="right">
+                                                <button
+                                                    class=" moveNextCarousel middle-indicator-text btn btn-flat purple-text waves-effect waves-light btn-next">
+                                                    <span class="hide-on-small-only">Next</span> <i
+                                                        class="material-icons">navigate_next</i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item slide-1">
+                                            <p class="intro-step-text mt-1 animated fadeInUp">Hi,<span
+                                                    th:text="${authUser.getName().getFullName()}"> </span></p>
+                                            <h5 class="intro-step-title mt-2 center animated fadeInUp">Welcome to
+                                                G-suite Management System</h5>
+                                            <p class="intro-step-text mt-1 animated fadeInUp">GMS This
+                                                is a G Suite administration and management app that offers a
+                                                comprehensive & advanced management and reporting on the G
+                                                Suite platform, and with a simplified view of the admin
+                                                controls. The GMS app serves to add custom and advanced
+                                                functionality to G Suite that many administrators need to
+                                                better manage, review and remediate the controls, security and
+                                                eliminate trivial tasks for onboarding and offboarding of
+                                                users.</p>
+                                        </div>
+                                        <div class="carousel-item slide-2">
+                                            <img src="./app-assets/images/gallery/intro-features.png" alt=""
+                                                class="responsive-img slide-2-img">
+                                            <h5 class="intro-step-title mt-3 center">GMS Integrations
+                                                With</h5>
+                                            <p class="intro-step-text mt-1"></p>
+                                            <div class="row">
+                                                <p class="intro-step-text mt-1 animated fadeInUp">The
+                                                    system is integrated with google APIs(Gmail,Drive,Sheet,Admin)
+                                                    for authentication,reporting and alerting/notifications.</p>
+                                                <div class="col m5 offset-m1 s12">
+                                                    <ul class="feature-list left-align">
+                                                        <li><i class="material-icons">check</i> Account
+                                                            management</li>
+                                                        <li><i class="material-icons">check</i> Gmail management</li>
+                                                        <li><i class="material-icons">check</i> Drive management</li>
+                                                        <li><i class="material-icons">check</i> Calendar
+                                                            Management</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col m6 s12">
+                                                    <ul class="feature-list left-align">
+                                                        <li><i class="material-icons">check</i> Data loss
+                                                            prevention</li>
+                                                        <li><i class="material-icons">check</i> Work Flow
+                                                            Process</li>
+                                                        <li><i class="material-icons">check</i> Automated
+                                                            security and policies</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item slide-3" th:if="!${isverfied}">
+                                            <img src="./app-assets/images/gallery/intro-app.png" alt=""
+                                                class="responsive-img slide-1-img">
+                                            <h5 class="intro-step-title mt-7 center">Get GMS</h5>
+                                            Click the button below to forward your GMS application
+                                            request.Once your application is validated and approved we will
+                                            notify you on how to finalize your registration
+                                            <div class="row">
+                                                <div class="row">
+                                                    <div class="col s12 center">
+                                                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdpmtniApUWvqo8GHc9tpzY1InST5fnrw3RdX7viGpcvViXKw/viewform"
+                                                            class="get-started btn waves-effect waves-light gradient-45deg-purple-deep-orange mt-3 modal-close">GET
+                                                            GMS NOW</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+            <!-- BEGIN VENDOR JS-->
+
+        </div>
+    </div>
+    <!--         <th:block th:replace="fragments/footer :: footer"></th:block> -->
+    <th:block th:include="fragments/js-content :: js-content"></th:block>
+</body>
+
+</html>

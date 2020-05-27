@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+<div th:replace="fragments/header-css :: header-css"></div>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <th:block th:replace="fragments/leftnav :: leftnav"></th:block>
+
+            <!-- BEGIN: Page Main-->
+            <main class="col">
+                <div class="row">
+                    <th:block th:replace="fragments/header :: header"></th:block>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="container-gms">
+                            <div class="table-top">
+                                <!-- <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb pl-0">
+                                        <li class="breadcrumb-item">
+                                            <a class="d-flex" href="#">
+                                                Home
+                                                <span class="material-icons">
+                                                    keyboard_arrow_right
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li class="breadcrumb-item active" aria-current="page">Marketing Gallary
+                                        </li>
+                                    </ol>
+                                </nav> -->
+                                <h2 class="h2 pl-0">Marketing Gallary</h2>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12" th:each="MarketingTemplate : ${myMarketing}">
+                                    <div class="card align-content-around  mt-5 mb-5 p-5">
+                                        <div class="card-content pb-5 pt-5 pl-5 pr-5">
+                                            <div class="text-dark" style="margin: 2px; padding: 2px;"
+                                                th:utext="${MarketingTemplate.marketingBody}"></div>
+                                            <p class="text-dark" style="margin: 0px; padding: 0px;"
+                                                th:text="${MarketingTemplate.name}">
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <!-- END: Page Main-->
+        </div>
+    </div>
+    <!-- Theme Customizer -->
+
+    <!--         <th:block th:replace="fragments/footer :: footer"></th:block> -->
+    <th:block th:include="fragments/js-content :: js-content"></th:block>
+</body>
+
+</html>

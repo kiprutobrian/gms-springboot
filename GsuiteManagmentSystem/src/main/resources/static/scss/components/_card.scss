@@ -1,0 +1,67 @@
+.gms-card {
+    margin-top: 5rem;
+    padding: 2rem;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 10px #8D8D8D29;
+    border-radius: 10px;
+
+    input,
+    button {
+        min-height: 4rem;
+        width: 100%;
+    }
+
+    input,
+    select {
+        margin-bottom: 2.5rem;
+    }
+
+    select {
+        vertical-align: top;
+        height: 4rem;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .label {
+        color: #000000;
+        font-size: 1.2rem;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: space-between;
+
+        &:not(:last-child) {
+            margin-right: 3rem;
+        }
+
+        .btn {
+            width: 49% !important;
+        }
+    }
+}
+
+
+// access control 
+.acess {
+    margin-top: 3rem;
+    display: grid;
+    grid-gap: 3rem;
+    grid-template-columns: repeat(4, 1fr);
+
+    &-item {
+
+        span,
+        p {
+            font-size: 1.1rem;
+        }
+
+        a {
+            font-size: 1.8rem;
+        }
+    }
+}

@@ -1,0 +1,60 @@
+.editor {
+    width: 70%;
+    box-shadow: 0px 0px 10px #8D8D8D29;
+    border-radius: 10px;
+    padding: 2rem 2rem 0 2rem;
+
+    &-signsture {
+        border-radius: unset;
+        width: 100%;
+
+        .btn {
+            margin-top: 0;
+        }
+
+    }
+
+    &-title {
+        letter-spacing: 0px;
+        font-size: 1.2rem;
+        color: #000000;
+    }
+
+    .btn {
+        min-height: 4rem;
+        margin-top: 7rem;
+        width: 100%;
+    }
+}
+
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+    margin-top: 3rem;
+
+    .label {
+        color: #000000;
+        font-size: 1.2rem;
+    }
+
+    input {
+        border: 1px solid #D3D3D3;
+        border-radius: 4px;
+        width: 50%;
+        min-height: 4rem;
+    }
+}
+
+.create {
+    display: flex;
+    justify-content: flex-end;
+    color: black;
+}
+
+.editor_div p {
+    margin: 0px;
+    padding: 0px;
+}

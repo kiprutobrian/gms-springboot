@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+<div th:replace="fragments/header-css :: header-css"></div>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <th:block th:replace="fragments/leftnav :: leftnav"></th:block>
+
+            <!-- END: SideNav -->
+
+
+
+
+
+            <!-- BEGIN: Page Main-->
+            <main class="col">
+                <div class="row">
+                    <th:block th:replace="fragments/header :: header"></th:block>
+                </div>
+
+                <div class="row">
+                    <div class="container-gms">
+                        <div class="col-sm-12">
+                            <div id="progress" style="display: none;">
+                                <div class="progress">
+                                    <div class="indeterminate"></div>
+                                </div>
+                            </div>
+                            <div id="alerts"></div>
+                            <div class="card-alert card green right" id="onsuccess" style="display: none; width: 40%;">
+                                <div class="card-content white-text">
+                                    <span class="card-title white-text darken-1"> <i
+                                            class="material-icons">notifications</i>Domain Drive
+                                    </span>
+                                    <div id="message"></div>
+                                </div>
+                                <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close"
+                                    id="cancel">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col s12">
+                            <div class="card user-card-negative-margin z-depth-0" id="feed">
+                                <div class="card-content card-border-gray">
+                                    <div class="row">
+                                        <input type="text" th:value="${selectedUserId}" id="selectedUserId"
+                                            readonly="readonly" style="display: none;">
+                                        <input type="text" th:value="${fileId}" id="fileId" readonly="readonly"
+                                            style="display: none;">
+
+                                        <div class="col s6">
+                                            <div class="col s1">
+                                                <img alt="#" th:src="${iconeLink}">
+                                            </div>
+                                            <div class="col s11">
+                                                <p th:inline="text">Name [[${fileName}]]</p>
+                                            </div>
+
+                                            <div class="col s12">
+                                                <div th:if="${isFolder}">
+                                                    <h6>FOLDER FILES</h6>
+                                                    <table id="sharedwithmefolderfiles" style="width: 100%">
+
+                                                        <thead>
+                                                            <tr>
+                                                                <th style="width: 30px; display: none;"></th>
+                                                                <th style="display: none;">ID</th>
+                                                                <th>File Name</th>
+                                                                <th>More</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr th:each="File : ${folderFiles}">
+                                                                <td style="width: 30px; display: none;"></td>
+                                                                <td style="display: none;" th:inline="text">
+                                                                    [[${File.getId()}]]</td>
+                                                                <td th:inline="text">[[${File.getName()}]]</td>
+                                                                <td><a
+                                                                        th:href="@{/getCurrentUserPermission/}+${selectedUserId}+@{/}+${File.getId()}"><span
+                                                                            class="material-icons">remove_red_eye</span></a>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col s6">
+                                            <table id="permisionstable" style="width: 100%;">
+                                                <thead>
+                                                    <th style="display: none;">id</th>
+                                                    <th>USERS ACCESS AND ROLE</th>
+                                                </thead>
+                                                <tbody>
+                                                     
+                                                    <tr th:each="Permission : ${permissionList}">
+                                                        <td class="id" th:text="${Permission.getId()}"
+                                                            style="display: none"></td> 
+                                                        <td>
+                                                            <div class="card">
+                                                                <div class="card-content card-border-gray">
+                                                                    <p th:inline="text">
+                                                                        <span style="color: darkgreen">EMAIL </span>
+                                                                        [[${Permission.getEmailAddress()}]]
+                                                                    </p>
+
+                                                                    <span style="color: darkgreen">ROLE </span>
+                                                                    [[${Permission.getRole()}]]
+                                                                    </p>
+                                                                    <p i th:inline="text">
+                                                                        <span style="color: darkgreen">ID </span>
+                                                                        [[${Permission.getId()}]]
+                                                                    </p>
+
+                                                                    <div th:switch="${Permission.getRole()}">
+                                                                        <div th:case="'owner'"></div>
+                                                                        <div th:case="*">
+                                                                            <div class="idform">
+                                                                                <br> <a type="button" class="btn"
+                                                                                    style="width: 100%"> <span>REVOKE
+                                                                                        ACCESS </span></a>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>   
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <!-- END: Page Main-->
+        </div>
+    </div>
+
+    <!--         <th:block th:replace="fragments/footer :: footer"></th:block> -->
+    <th:block th:include="fragments/js-content :: js-content"></th:block>
+</body>
+
+</html>

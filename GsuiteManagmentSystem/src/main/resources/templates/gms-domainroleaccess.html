@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+<div th:replace="fragments/header-css :: header-css"></div>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <th:block th:replace="fragments/leftnav :: leftnav"></th:block>
+            <!-- END: SideNav -->
+
+            <!-- BEGIN: Page Main-->
+            <main class="col">
+                <div class="row">
+                    <th:block th:replace="fragments/header :: header"></th:block>
+                </div>
+
+                <div class="container-gms">
+                    <div class="table-top">
+                        <!-- <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb pl-0">
+                                <li class="breadcrumb-item">
+                                    <a class="d-flex" href="#">
+                                        Home
+                                        <span class="material-icons">
+                                            keyboard_arrow_right
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">Admin Control
+                                </li>
+                            </ol>
+                        </nav> -->
+                        <h2 class="h2 pl-0">Admin Control</h2>
+                    </div>
+
+
+
+                    <h2 class="text-dark">GMS Access and Privileges Setting</h2>
+
+
+                    <div class="acess" id="roleslist">
+
+                        <div class="acess-item" th:each="Role : ${roleslist}">
+                            <div>
+                                <p style="display: none;" class="col s4">ID</p>
+                            </div>
+                            <div class="m-0 card ">
+                                <div class="card-body ">
+                                    <span class="mb-0 card-title text-dark" th:text="${Role.getName()}"></span>
+                                    <p class="mt-0 text-dark" th:text="${Role.getDescription()}"></p>
+
+                                </div>
+                                <div class="card-footer text-muted bg-warning">
+                                    <a th:href="@{/RoleSetting/} + ${Role.getId()}"
+                                        class="text-accent-1 text-dark pt-3">Access Setting</a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </main>
+
+            <!-- END: Page Main-->
+        </div>
+
+    </div>
+    <!-- BEGIN VENDOR JS-->
+    <!--         <th:block th:replace="fragments/footer :: footer"></th:block> -->
+    <th:block th:include="fragments/js-content :: js-content"></th:block>
+</body>
+
+</html>

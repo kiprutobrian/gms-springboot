@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+<div th:replace="fragments/header-css :: header-css"></div>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <th:block th:replace="fragments/leftnav :: leftnav"></th:block>
+
+            <main class="col">
+                <div class="row">
+                    <th:block th:replace="fragments/header :: header"></th:block>
+                </div>
+                <div class="row">
+                    <div class="container-gms">
+                        <div class="row card-gms mT-30 mB-30">
+                            <div class="col-md-12">
+                                <table id="dataTable" class="table table-striped table-bordered" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 50px;"></th>
+                                            <th style="display: none;">ID</th>
+                                            <th>PrimaryEmail</th>
+                                            <th>Name</th>
+                                            <th>Org Unit</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="User : ${users}">
+                                            <td style="width: 50px;"></td>
+                                            <td th:text="${User.getId()}" style="display: none;"></td>
+                                            <td th:text="${User.getPrimaryEmail()}"></td>
+                                            <td th:text="${User.getName().getFullName()}"></td>
+                                            <td th:text="${User.getOrgUnitPath()}"></td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th style="width: 50px;"></th>
+                                            <th style="display: none;">ID</th>
+                                            <th>PrimaryEmail</th>
+                                            <th>Name</th>
+                                            <th>Org Unit</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card mt-5 mb-5 p-5">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <p class="text-dark">All Email(s) will be backed up in The backup account
+                                                <p>
+                                                    <input class="form-control" type="email" id="backupaccount"
+                                                        th:value="${backupaccount}">
+                                                </p>
+                                        </div>
+                                        <div class="col-md-12 right">
+                                            <p class="text-dark">Backup Data for The following Applications</p>
+                                            <div class="col-md-4 right">
+                                                <p>
+                                                    <label class="text-dark d-flex align-items-center"> <input
+                                                            id="email" type="checkbox" checked="checked" />
+                                                        <span class="pl-3">G-Mail(All mails)</span>
+                                                    </label>
+                                                </p>
+                                            </div>
+                                            <div class="col-md-4 right">
+                                                <p>
+                                                    <label class="text-dark d-flex align-items-center"> <input
+                                                            id=" drive" type="checkbox" checked="checked" />
+                                                        <span class="pl-3">Drive(Files & Folders)</span>
+                                                    </label>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <button class="btn btn-lg btn-success" id="backupemails">BackUp</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row card mt-5 mb-5">
+                            <div class="col-md-12" style="margin-top: 20px;" th:if="${restor}">
+                                <!-- Page Length Options -->
+                                <div>
+                                    <div class="card-content">
+
+                                        <div class="col-md-6">
+                                            <div class="card mb-5 p-5">
+                                                <div style="margin: 4px; padding: 4px;">
+                                                    <h6 class="text-dark">
+                                                        G-MAIL BACKUP : <span th:text="${backupaccount}"></span>
+                                                    </h6>
+                                                    <table id="lableslist">
+                                                        <thead>
+                                                            <tr>
+                                                                <th style="width: 50px;"></th>
+                                                                <th style="display: none;">ID</th>
+                                                                <th class="text-dark">BackedUp Email's MailBoxes</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr th:each="Label : ${label}">
+                                                                <td style="width: 50px;"></td>
+                                                                <td th:text="${Label.getId()}" style="display: none;">
+                                                                </td>
+                                                                <td class="text-dark" th:text="${Label.getName()}"></td>
+
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="card  mt-5 mb-5 p-5">
+                                                <div style="margin: 4px; padding: 4px;">
+                                                    <h6 class="text-dark">
+                                                        DRIVE BACKUP : <span th:text="${backupaccount}"></span>
+                                                    </h6>
+                                                    <table id="folderslist" class="display">
+                                                        <thead>
+                                                            <tr>
+                                                                <th style="width: 50px;"></th>
+                                                                <th style="display: none;">Folder</th>
+                                                                <th class="text-dark">BackedUp Drive Files && Folders
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr th:each="File : ${backupfolders}">
+                                                                <td style="width: 50px;"></td>
+                                                                <td th:text="${File.getId()}" style="display: none;">
+                                                                </td>
+                                                                <td class="text-dark" th:text="${File.getName()}"></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
+                                        <div class="col-md-6">
+                                            <div class="card mt-5 mb-5 p-5">
+                                                <div class="input-field col-md-12">
+                                                    <p class="text-dark">All Email(s) will be restored to in
+                                                        The backup
+                                                        account</p>
+                                                </div>
+                                                <div class="input-field input-group col-md-12">
+                                                    <select class="custom-select browser-default" id="äccount">
+                                                        <option class="text-dark" value="0" disabled selected>Choose
+                                                            An
+                                                            Account To Restore To</option>
+                                                        <option class="text-dark" th:each="User : ${users}"
+                                                            th:value="${User.getId()}" th:inline="text">
+                                                            [[${User.getPrimaryEmail()}]]</option>
+                                                    </select>
+                                                </div>
+                                                <div class="input-field col-md-12">
+                                                    <button class="btn btn-lg btn-success"
+                                                        id="restoreemail">Restore</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!--         <th:block th:replace="fragments/footer :: footer"></th:block> -->
+    <th:block th:include="fragments/js-content :: js-content"></th:block>
+</body>
+
+</html>

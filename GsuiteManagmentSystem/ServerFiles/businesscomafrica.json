@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "businesscom-portal",
+  "private_key_id": "a556bde190617902b4abae8a51542b5120124316",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCzIt3+KWhqUsQ7\nowFsYqAZp3UOrUpRG6EzTS9C1AOVS1kDKD9NYXlzK8xkDLFhuaR6kqvffTcf67ji\nJcvuPAfWA+Uz40HS9iuiX/jzPbszrS3VCRgl6wmUDtPEZ+6RB3cDRnPNh3VmBTJQ\nv/rSBFdkD6K29+YLozXu0yZvt6K+HH9J+7cslnlQLdMfrZ5kYYIvwfmKE+e887Fp\nGLyfIgesXpDnK0wMxxJM8CGCKQn6k0SdeOPU/7/ONgLpXxOgZonkkQIj1lM1AgVQ\nkBdGi81PASywDhWj3ELg6pkEMEveqDPfXcZgguQLDyB653tQ9Lk8XP/9vItPFfi0\nOV9wz1avAgMBAAECggEARyNvmUGEb8TSnQRMymgYQFfaCqwSuUcJqz/ZpuZfTeiQ\nPsq66NXuzyfzkT/hKXf5s5uPmb82Jv0LfPOZmtBIJFuDqCl1uHt+NIt8Z8x6DTmW\n2+Uyq8w9D4kb3AGSIhIe1zQhRNuoaY1iv+Kdjs2ejuQOsC6eMrzr7B36Q59fh7NK\n7x8Qt4OmTj+E72xXVnC6+JEF0CGs6wEbzgVuvgyDMvyxilySAvrk1yGBf8SiKdwf\nDpNs977gLwe05DMG5Ga7hXHdG/o0NZPxvDF53dNIT81gj08DYX/jHxEJKOXyYnuF\nRHPFTKjdH5Q96O7pzrzvAnLUdZY5rbOnrWoDR8/9gQKBgQDlyYr0hs2yAxGPR/ys\nO+FcvJX+QrpycWBkLJi45FOZ7cv3H6br63jfzGA5jLItmj2vETMjvauIrV4tcdDb\ng/9TueTqAl/+fKniAfo0UWjUKW5M7zX72uz+TimgfFSQYk6VzHIvBrA1gD091cEW\nMU2XIVjVM7vFlivv39sNcIGDIQKBgQDHkipfjQNJZbj8OZHWBMY+5L3y4wYnZ5G9\nVu2LVpnuCNuKqRARNTmVBcMblkRhrFi5B8/WSj5H8wbQGOlK8XsuGWLT8ml7nXNF\n8vpQlJJv4VAP7MH2VGu7A0ebrS+kqUiGQCg5hyCgfdyhsbZzT6CLna75x8r+ncXD\npmqMw9tvzwKBgGnKK+r/1NtLhl4MqksxFkP3nqZ8WhIuGE6GKZmVpNeNHwYa0GJ0\n+iUulm5oU++ivxtGM+EUhVBbYKxTZfBqCLanMrh5d3BWPHAMsQA9KqHioSFST+wv\nkkRR/+Ae3V/LoppckYUM8zruW0OIkWiCMlKNy7P8KUqCJKA+0z6QuU+BAoGADmdU\nO5U32YJH+ZxGFEY/8KYdt3v/I7Tr5dhySI41ieKFxdox2KwYvdKupD0SLmJ7/M69\nh1/QYuz9XuONYuVO2KLoaRej2VIh0biZrFssvnpqhtu1nAu3wsWX03qKZ734CAh1\nXsGL70lmNR1YZ7Ylhi4ZRNnQotPMRDSsmABCxC0CgYAYWLXcaMz9SUwCaw+eqn3a\nqTa4pV2fouVWejVH6zAlW6ijG6tBshC3nEG0SESmdQ8ItVDjwv1MI6yoefRStem8\nQ3qHSojWIb2zRqZerztMa5hjzQKbnISRx82JgbhiI5+DWurIctrNPQsyn2oUQCV+\nY5PJq2mm6sCgehekXGlGOw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "portal-sql-db@businesscom-portal.iam.gserviceaccount.com",
+  "client_id": "109661852697521674958",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/portal-sql-db%40businesscom-portal.iam.gserviceaccount.com"
+}

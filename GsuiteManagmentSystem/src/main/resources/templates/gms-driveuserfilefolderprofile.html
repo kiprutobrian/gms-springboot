@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+<div th:replace="fragments/header-css :: header-css"></div>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <th:block th:replace="fragments/leftnav :: leftnav"></th:block>
+            <!-- END: SideNav -->
+
+
+
+            <!-- BEGIN: Page Main-->
+            <main class="col">
+                <div class="row">
+                    <th:block th:replace="fragments/header :: header"></th:block>
+                </div>
+
+                <div class="row">
+                    <div class="container-gms">
+
+                        <div class="col-md-12">
+                            <div id="progress" style="display: none;">
+                                <div class="progress">
+                                    <div class="indeterminate"></div>
+                                </div>
+                            </div>
+                            <div id="alerts"></div>
+                            <div class="card-alert card green right" id="onsuccess" style="display: none; width: 40%;">
+                                <div class="card-content white-text">
+                                    <span class="card-title white-text darken-1"> <i
+                                            class="material-icons">notifications</i>Domain Drive
+                                    </span>
+                                    <div id="message"></div>
+                                </div>
+                                <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close"
+                                    id="cancel">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="col s12">
+
+                            <!-- Page Length Options -->
+                            <div class="card">
+                                <div class="col s2">
+                                    <p>Account Actions</p>
+                                    <br> <a class="btn modal-trigger mb-2 mr-1"
+                                        style="background-color: #4CAF50; height: 50%; width: 100%; margin-top: 5px; font-size: 10px;"
+                                        id="updateSelected">Add/Update</a> <a class="btn"
+                                        style="background-color: #00bcd4; height: 50%; width: 100%; margin-top: 5px; font-size: 10px;"
+                                        id="updateSelected3">Remove</a> <a class="btn"
+                                        style="background-color: #9c27b0; height: 50%; width: 100%;; margin-top: 5px; font-size: 10px;"
+                                        id="updateSelected1">View</a> <a class="btn" href="/createSignatureTemplate"
+                                        style="background-color: #009688; height: 50%; width: 100%;; margin-top: 5px; font-size: 10px;"
+                                        id="updateSelected1">Create</a>
+                                </div>
+
+                                <div class="col s10" style="background-color: white;">
+                                    <table id="signatureuserlist" class="display" cellspacing="0"
+                                        style="width: 100%; margin-top: 10px; background-color: white; color: black;">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 50px;"></th>
+                                                <th style="display: none;">ID</th>
+                                                <th>PrimaryEmail</th>
+                                                <th>Name</th>
+                                                <th>Org Unit</th>
+                                                <th>Suspended</th>
+                                                <th>Last Login Time</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr th:each="User : ${users}">
+                                                <td style="width: 50px;"></td>
+                                                <td th:text="${User.getId()}" style="display: none;"></td>
+                                                <td th:text="${User.getPrimaryEmail()}"></td>
+                                                <td th:text="${User.getName().getFullName()}"></td>
+                                                <td th:text="${User.getOrgUnitPath()}"></td>
+                                                <td th:text="${User.getSuspended()}"></td>
+                                                <td th:text="${User.getLastLoginTime()}"></td>
+                                                <td><a class="material-icons"
+                                                        th:href="@{/viewProfile/} + ${User.getId()}">remove_red_eye</a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- START RIGHT SIDEBAR NAV -->
+                        </div>
+                    </div>
+
+                    <div id="modal1" class="modal">
+                        <div class="modal-content card">
+                            <p>Marketing & Branding Templates</p>
+                            <div class="col s9">
+                                <table id="template_table" style="cellspacing: 0;">
+                                    <thead>
+                                        <tr>
+                                            <th>Template ID</th>
+                                            <th>Template Name</span></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="SignatureTemplate : ${mysignature}">
+                                            <td class="id" th:text="${SignatureTemplate.getId()}"></td>
+                                            <td th:text="${SignatureTemplate.getName()}"></td>
+                                            <td class="idform"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col s3">
+                                <br> <br>
+                                <button class="btn"
+                                    style="background-color: #4CAF50; height: 50%; width: 100%; margin-top: 5px; font-size: 10px;"
+                                    id="applytemplate">Apply</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </main>
+            <!-- END: Page Main-->
+        </div>
+    </div>
+    <!-- BEGIN VENDOR JS-->
+    <!--         <th:block th:replace="fragments/footer :: footer"></th:block> -->
+    <th:block th:include="fragments/js-content :: js-content"></th:block>
+</body>
+
+</html>

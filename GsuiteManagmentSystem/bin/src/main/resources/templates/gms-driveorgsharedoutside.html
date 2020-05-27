@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<!--
+Template Name: Materialize - Material Design Admin Template
+Author: PixInvent
+Website: http://www.pixinvent.com/
+Contact: hello@pixinvent.com
+Follow: www.twitter.com/pixinvents
+Like: www.facebook.com/pixinvents
+Purchase: https://1.envato.market/materialize_admin
+Renew Support: https://1.envato.market/materialize_admin
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+
+-->
+<html class="loading" lang="en" data-textdirection="ltr">
+<!-- BEGIN: Head-->
+
+<!-- Mirrored from pixinvent.com/materialize-material-design-admin-template/html/ltr/vertical-modern-menu-template/user-profile-page.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Sep 2019 06:14:37 GMT -->
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+<meta name="description"
+	content="Materialize is a Material Design Admin Template,It's modern, responsive and based on Material Design by Google.">
+<meta name="keywords"
+	content="materialize, admin template, dashboard template, flat admin template, responsive admin template, eCommerce dashboard, analytic dashboard">
+<meta name="author" content="ThemeSelect">
+<meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}" />
+<!-- <meta th:name="${_account.parameterName}" th:content="${_account.name}" />
+ -->
+<title>GMS</title>
+<link rel="apple-touch-icon"
+	href="/app-assets/images/favicon/apple-touch-icon-152x152.png">
+<link rel="shortcut icon" type="image/x-icon"
+	href="/app-assets/images/favicon/favicon-32x32.png">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<!-- BEGIN: VENDOR CSS-->
+
+<link type="text/css"
+	rel="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css">
+<link type="text/css"
+	rel="https://cdn.datatables.net/1.10.20/css/dataTables.material.min.css">
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/vendors/sweetalert/sweetalert.css">
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/vendors/data-tables/extensions/responsive/css/responsive.dataTables.min.css">
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/vendors/data-tables/css/select.dataTables.min.css">
+
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/vendors/vendors.min.css">
+<!-- END: VENDOR CSS-->
+<link rel="stylesheet" type="text/css"
+	href="./app-assets/vendors/sweetalert/sweetalert.css">
+<!-- BEGIN: Page Level CSS-->
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/css/themes/vertical-modern-menu-template/materialize.css">
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/css/themes/vertical-modern-menu-template/style.css">
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/css/pages/user-profile-page.css">
+<!-- END: Page Level CSS-->
+<!-- BEGIN: Custom CSS-->
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/css/custom/custom.css">
+<!-- END: Custom CSS-->
+
+<style type="text/css">
+#sharedbymeexample_filter input {
+	width: 50%;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+
+#sharedbymeexample tr td {
+	height: 8px;
+	padding: 0px;
+	margin: 0px;
+}
+
+#example tr td {
+	height: 8px;
+	padding: 0px;
+	margin: 0px;
+}
+
+#permisionstable tr td {
+	height: 8px;
+	padding: 0px;
+	margin: 0px;
+}
+
+#example_filter input {
+	width: 50%;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+
+#sharedwithmefolderfiles_filter input {
+	width: 50%;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+
+#sharedwithmefolderfiles tr td {
+	height: 8px;
+	padding: 0px;
+	margin: 0px;
+}
+
+#template_table tr td {
+	height: 25px;
+}
+</style>
+</head>
+<!-- END: Head-->
+
+<body
+	class="vertical-layout vertical-menu-collapsible page-header-dark vertical-modern-menu 2-columns  "
+	data-open="click" data-menu="vertical-modern-menu" data-col="2-columns" th:object="${authUser}">
+
+<!-- 	<!-- BEGIN: Header-->
+	<th:block th:utext="${header}"></th:block>
+	<!--  END: Header -->
+
+	<!-- BEGIN: SideNav -->
+	<th:block th:utext="${sidenaveMenu}"></th:block>
+	<!-- END: SideNav -->
+	
+
+
+
+
+	<!-- BEGIN: Page Main-->
+	<div id="main">
+		<div class="row">
+			<div class="container">
+				<div class="col s12">
+					<div id="progress" style="display: none;">
+						<div class="progress">
+							<div class="indeterminate"></div>
+						</div>
+					</div>
+					<div id="alerts"></div>
+					<div class="card-alert card green right" id="onsuccess"
+						style="display: none; width: 40%;">
+						<div class="card-content white-text">
+							<span class="card-title white-text darken-1"> <i
+								class="material-icons">notifications</i>Domain Drive
+							</span>
+							<div id="message"></div>
+						</div>
+						<button type="button" class="close white-text"
+							data-dismiss="alert" aria-label="Close" id="cancel">
+							<span aria-hidden="true">×</span>
+						</button>
+					</div>
+				</div>
+				<div class="col s12">
+					<div class="card user-card-negative-margin z-depth-0" id="feed">
+						<div class="card-content card-border-gray">
+							<div class="row">
+								<input type="text" th:value="${selectedUserId}"
+									id="selectedUserId" readonly="readonly" style="display: none;">
+								<input type="text" th:value="${fileId}" id="fileId"
+									readonly="readonly" style="display: none;">
+
+								<div class="col s6">
+									<div class="col s1">
+										<img alt="#" th:src="${iconeLink}">
+									</div>
+									<div class="col s11">
+										<p th:inline="text">Name [[${fileName}]]</p>
+									</div>
+
+									<div class="col s12">
+										<div th:if="${isFolder}">
+											<h6>FOLDER FILES</h6>
+											<table id="sharedwithmefolderfiles" style="width: 100%">
+
+												<thead>
+													<tr>
+														<th style="width: 30px; display: none;"></th>
+														<th style="display: none;">ID</th>
+														<th>File Name</th>
+														<th>More</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr th:each="File : ${folderFiles}">
+														<td style="width: 30px; display: none;"></td>
+														<td style="display: none;" th:inline="text">[[${File.getId()}]]</td>
+														<td th:inline="text">[[${File.getName()}]]</td>
+														<td><a
+															th:href="@{/getCurrentUserPermission/}+${selectedUserId}+@{/}+${File.getId()}"><span
+																class="material-icons">remove_red_eye</span></a></td>
+													</tr>
+												</tbody>
+											</table>
+
+										</div>
+									</div>
+								</div>
+								<div class="col s6">
+									<table id="permisionstable" style="width: 100%;">
+										<thead>
+											<th style="display: none;">id</th>
+											<th>USERS ACCESS AND ROLE</th>
+										</thead>
+										<tbody>
+											 
+											<tr th:each="Permission : ${permissionList}">
+												<td class="id" th:text="${Permission.getId()}"
+													style="display: none"></td> 
+												<td>
+													<div class="card">
+														<div class="card-content card-border-gray">
+															<p th:inline="text">
+																<span style="color: darkgreen">EMAIL </span>
+																[[${Permission.getEmailAddress()}]]
+															</p>
+
+															<span style="color: darkgreen">ROLE </span>
+															[[${Permission.getRole()}]]
+															</p>
+															<p i th:inline="text">
+																<span style="color: darkgreen">ID </span>
+																[[${Permission.getId()}]]
+															</p>
+
+															<div th:switch="${Permission.getRole()}">
+																<div th:case="'owner'"></div>
+																<div th:case="*">
+																	<div class="idform">
+																		<br> <a type="button" class="btn"
+																			style="width: 100%"> <span>REVOKE ACCESS </span></a>
+																	</div>
+																</div>
+
+															</div>
+
+														</div>
+													</div>   
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END: Page Main-->
+
+	<!-- Theme Customizer -->
+	<!-- BEGIN VENDOR JS-->
+	<script src="/app-assets/js/vendors.min.js" type="text/javascript"></script>
+	<!-- BEGIN VENDOR JS-->
+	<!-- BEGIN PAGE VENDOR JS-->
+	<!-- END PAGE VENDOR JS-->
+	<!-- BEGIN THEME  JS-->
+
+	<script
+		src="/app-assets/vendors/data-tables/js/jquery.dataTables.min.js"
+		type="text/javascript"></script>
+	<script
+		src="/app-assets/vendors/data-tables/extensions/responsive/js/dataTables.responsive.min.js"
+		type="text/javascript"></script>
+	<script
+		src="/app-assets/vendors/data-tables/js/dataTables.select.min.js"
+		type="text/javascript"></script>
+	<script
+		src="https://cdn.datatables.net/1.10.20/js/dataTables.material.min.js"></script>
+	<script type="text/javascript"
+		src="https://gyrocode.github.io/jquery-datatables-checkboxes/1.2.11/js/dataTables.checkboxes.min.js"></script>
+
+
+	<script src="/app-assets/js/plugins.js" type="text/javascript"></script>
+	<script src="/app-assets/js/custom/custom-script.js"
+		type="text/javascript"></script>
+	<script src="/app-assets/js/scripts/customizer.js"
+		type="text/javascript"></script>
+	<!-- END THEME  JS-->
+	<script src="/app-assets/vendors/sweetalert/sweetalert.min.js"></script>
+	<script src="/app-assets/js/scripts/ui-alerts.js"
+		type="text/javascript"></script>
+
+	<script src="/app-assets/js/scripts/gms-drive.js"
+		type="text/javascript"></script>
+
+	<!-- BEGIN PAGE LEVEL JS-->
+	<!-- END PAGE LEVEL JS-->
+</body>
+
+<!-- Mirrored from pixinvent.com/materialize-material-design-admin-template/html/ltr/vertical-modern-menu-template/user-profile-page.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Sep 2019 06:14:46 GMT -->
+
+</html>

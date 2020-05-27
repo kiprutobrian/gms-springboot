@@ -1,0 +1,101 @@
+.main-menu {
+    position: fixed;
+    background: #ee6e73;
+    color: #FFFFFF;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.05);
+    transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    backface-visibility: hidden;
+
+    width: 260px;
+    right: -260px;
+    top: 9rem;
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+    transition: width 0.25s,
+        opacity 0.25s,
+        transform 0.25s;
+
+    z-index: 1031;
+    display: table-cell;
+    height: 100%;
+    overflow: hidden;
+
+    @include media-breakpoint-down(md) {}
+
+    &.show {
+        opacity: 1;
+        transform: translate3d(-260px, 0, 0);
+        transition: width 0.25s,
+            opacity 0.25s,
+            transform 0.25s;
+
+        .nav-icon {
+
+            &:before {
+                transform: translateY(6px) rotate(135deg);
+            }
+
+            &:after {
+                transform: translateY(-8px) rotate(-135deg);
+            }
+
+            & div {
+                transform: scale(0);
+            }
+        }
+    }
+
+    .main-menu-content {
+        height: calc(100% - 7rem);
+        position: relative;
+
+        .navigation {
+            overflow-y: hidden;
+            overflow-x: hidden;
+            list-style: none;
+            margin-top: 3rem;
+            margin: 0;
+            padding: 0;
+
+            .nav-item {
+                padding: 0 1.5rem;
+                position: relative;
+                white-space: nowrap;
+
+                .nav-link {
+                    color: #FFFFFF;
+                    font-size: 1.6rem;
+                    font-weight: 400;
+                    padding: 10px 15px 10px 15px;
+                    line-height: 1.45;
+                    display: flex;
+                    align-items: center;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+
+                    .mr-sm {
+                        margin-right: 1.6rem;
+                    }
+                }
+            }
+        }
+    }
+}
+// .sidenav-overlay {
+//     position: fixed;
+//     top: 0;
+//     right: 0;
+//     right: -100vw;
+//     width: 100vw;
+//     height: 120vh;
+//     background-color: rgba(0, 0, 0, 0.5);
+//     z-index: 997;
+//     display: block;
+//     opacity: 0;
+//     transform: translate3d(0, 0, 0);
+
+//     &[aria-expanded="true"] {
+//         opacity: 1;
+//         transform: translate3d(100vw, 0, 0);
+//     }
+// }

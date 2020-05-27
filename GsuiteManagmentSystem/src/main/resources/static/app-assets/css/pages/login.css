@@ -1,0 +1,204 @@
+/*----------------------------------------
+    Header
+------------------------------------------*/
+.login-bg{
+	background-image: url('../../images/gallery/image-bg.png');
+	 background-position: center center;
+    -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	} 
+
+#header {
+	padding: 2.5rem;
+
+}
+#header .brand-logo:hover{
+	cursor:pointer;
+}
+#header .header-bg{
+	clip-path: circle(50% at 100% 1%);
+	background: #9107A0;
+	position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 38rem;
+}
+#header .logo{
+	position: absolute;
+	top: 12rem;
+    right: 8rem;
+    width: 160px;
+}
+#header .header-nav{
+	position: relative;
+    z-index: 100;
+}
+
+#header .header-nav .right{
+	display: flex;
+
+}
+
+#header .header-nav .right li:first-child{
+	margin-right:2rem;	 
+}
+#header .header-nav .right li{
+	padding: .8rem 1.2rem;
+}
+
+#header .header-nav .right li:hover{
+	border: 1px solid #FFFFFF;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#header .header-nav .right li a{
+	color: #FFFFFF;
+	text-decoration: none;
+	font-family: Avenir;
+	font-size: 1.2rem;
+	padding: .5rem 1.3rem;
+}
+
+
+
+/*----------------------------------------
+    Login Page
+------------------------------------------*/
+.login-bg
+{
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+            background-size: cover;
+}
+
+.login-page
+{
+	position:absolute;
+	right: 0;
+	top: 0;
+	width: 35vw;
+	background: #9107A0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display:    -moz-box;
+    display: -ms-flexbox;
+    display:         flex;
+
+    height: 100vh; 
+
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+       -moz-box-pack: center;
+    -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+    -ms-flex-align: center;
+            align-items: center;
+   
+}
+
+         
+@media (max-width: 575.98px) { 
+    .login-page{
+    		width: 100vw;
+    }
+}
+
+.login-page .header{
+	margin-top: 5rem;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-page .header .logo{
+	width: 90px;
+    height: 90px;
+}
+
+.login-page .header .title{
+	font-family: Avenir;
+	font-size: 2rem;
+	color: #FFFFFF;
+	white-space: nowrap;
+}
+.login-page .content {
+	display: flex;
+    flex-direction: column;
+    padding: 0 3rem;
+}
+.login-page .content .sign{
+	font-family: Avenir;
+	font-size: 1.5rem;
+	color: #FFFFFF;
+	margin: 0;
+}
+
+.login-page .content .text{
+	font-family: Avenir;
+	font-size: 1rem;
+	color: #FFFFFF;
+	margin: 0;
+    padding: 1.5rem 0;
+}
+
+.login-page .content .btn{
+	background: white;
+    color: #9107A0;
+    margin-bottom: 2rem;
+}
+
+.login-page .content .btn span{
+	color: black;
+    padding-left: 1rem;
+}
+
+.login-page .content hr{
+	width: 100%;
+}
+
+.login-page .footer {
+	padding: 0 3rem;
+}
+
+.login-page .footer .text{
+	font-family: Avenir;
+	font-size: 1rem;
+	color: #FFFFFF;
+	margin: 0;
+	white-space: nowrap;
+	float: right;
+}
+#login-page .card-panel.border-radius-6.login-card
+{
+    margin-left: 0 !important;
+}
+
+.login-box {
+	display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 32%;
+    left: 10%;
+}
+
+.login-box .title{
+	font-size: 3rem;
+	font-family: 'Muli', sans-serif;
+	margin-bottom: 1rem;
+	padding-bottom: 1rem;
+    border-bottom-color: #9107A0;
+    border-width: 1.5rem;
+    border-bottom-style: dashed;
+}
+
+.login-box  img{
+	margin-top: 3rem;
+	width: 494px;
+	height: 167px;
+}

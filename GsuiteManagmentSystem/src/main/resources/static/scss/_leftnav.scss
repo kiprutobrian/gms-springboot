@@ -1,0 +1,172 @@
+/*----------------------------------------
+  Sidebar Style
+------------------------------------------*/
+.sidebar {
+    display: flex;
+    z-index: 100;
+    box-shadow: 3px 0px 6px #00000029;
+    width: 28rem;
+    height: auto;
+    min-height: 100vh;
+    overflow: hidden;
+    transition: all .3s;
+    background-color: #8E24AA !important;  
+
+    &.show {  
+        width: 70px;
+        height: auto;
+        min-height: 100vh;
+
+        @include media-breakpoint-down(lg) {
+            width: 60px;
+        }
+
+        &:hover {
+            width: 28rem;
+            height: auto;
+            min-height: 100vh;
+            overflow: hidden;
+            transition: all .3s;
+
+            .sidebar-sticky {
+
+                .nav {
+
+                    .sidebar-header {
+
+                        .sidebar-brand {
+
+                            .logo {
+                                display: block;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .sidebar-sticky {
+            .nav {
+                .sidebar-header {
+                    .sidebar-brand {
+
+                        .logo {
+                            display: none;
+                        }
+
+                        .navbar-toggoler {}
+                    }
+                }
+            }
+        }
+    }
+
+    .sidebar-sticky {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: #8E24AA !important;
+
+        .nav {
+
+            .sidebar-header {
+                margin: 0 0 1rem 0;
+
+                .sidebar-brand {
+                    height: 9rem;
+                    display: flex;
+                    align-items: center;
+                    padding: .5rem 0.5rem 0.5rem 2.5rem;
+                    white-space: nowrap;
+
+                    .dashboard-logo {
+                        width: 4rem;
+                        height: 4rem;
+                    }
+
+                    .navbar-toggler {
+                        height: 60px;
+                        width: 60px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        &:hover {
+                            border-radius: 50%;
+                            cursor: pointer;
+                            background-color: rgba(255, 255, 255, 0.2);
+                        }
+                    }
+                }
+            }
+
+            .nav-item {
+                margin: 0.5rem 0;
+                padding: 0 0 0 1.5rem;
+
+                .nav-link {
+                    color: $white;
+                    font-size: 12px;
+                    padding: 0.5rem 2.5rem 0.5rem 1.2rem;
+                    white-space: nowrap;
+
+                    @include media-breakpoint-down(xl) {
+                        padding: 1rem 2.5rem 1rem 1rem;
+                    }
+
+                    &.active,
+                    &:hover {
+                        color: #8E24AA;
+                        background-color: #fff;
+                        border-radius: 2.8rem 0px 0px 2.8rem;
+                    }
+
+                    .mr-sm {
+                        margin-right: 2.5rem;
+                    }
+
+                    .rotate {
+                        font-size: 1.6rem;
+                        transition: transform .3s linear;
+                    }
+
+                    &[aria-expanded="true"] {
+                        .rotate {
+                            -moz-transform: rotate(90deg);
+                            -webkit-transform: rotate(90deg);
+                            transform: rotate(90deg);
+                        }
+                    }
+                }
+
+                .sub-group {
+                    margin: 0px 0px 0px 15px;
+
+                    .nav {
+                        .nav-item {
+                            .nav-link {
+                                padding: .5rem 3rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .nav-bottom {
+            margin: 5rem 0;
+            border-top: 1px solid #FFFFFF;
+
+            .nav-link {
+
+                &.active,
+                &:hover {
+                    color: #fff !important;
+                    background-color: #8E24AA !important;
+                    border-radius: 2.8rem 0px 0px 2.8rem;
+                }
+            }
+        }
+    }
+}

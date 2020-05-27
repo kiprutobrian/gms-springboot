@@ -1,0 +1,188 @@
+.dataTables_wrapper {
+
+    label {
+        font-size: 1.4rem;
+        color: #A0A0A0;
+
+        .form-control {
+            font-size: 1.6rem;
+            font-family: $primaryFont;
+            color: #707070;
+            border: 1px solid #D3D3D3;
+            border-radius: 5px;
+
+            &:focus {
+                color: #495057;
+                background-color: #fff;
+                border-color: #D3D3D3;
+                outline: 0;
+                box-shadow: unset;
+            }
+        }
+    }
+
+    .dataTables_length {
+        .custom-select {
+            background: unset;
+            color: #000000;
+        }
+    }
+
+    .dataTables_filter {}
+
+    .dataTable {
+        border: none;
+
+        thead,
+        tfoot {
+            th {
+                border-top: none;
+                border-left: none;
+                border-right: none;
+                border-bottom: 1px solid #E8E8E8;
+                padding: 1rem;
+                color: #000000;
+                font-size: 1.4rem;
+                font-family: $primaryFont;
+                text-transform: uppercase;
+                white-space: nowrap;
+            }
+        }
+
+        tbody {
+
+            tr {
+                td {
+                    color: #1D1D1D;
+                    font-size: 1.2rem;
+                    font-family: $primaryFont;
+                    white-space: nowrap;
+                    background: #FFFFFF;
+                    padding: 1rem;
+                    border-top: none;
+                    border-left: none;
+                    border-right: none;
+                    border-bottom: 1px solid #E8E8E8;
+                }
+
+                .select-checkbox {
+
+                    &:before,
+                    &:after {
+                        width: 1.6rem;
+                        height: 1.6rem;
+                    }
+
+                    &:before {
+                        border: 1px solid #dee2e6;
+                        background-color: #dee2e6;
+                    }
+
+                    &:after {
+
+                    }
+                }
+            }
+
+            .selected {
+                .select-checkbox {
+
+                    &:before {
+                        border: 1px solid #007bff;
+                        background-color: #007bff;
+                        border-radius: .25rem;
+                    }
+
+                    &:after {
+                        text-align: unset;
+                        text-shadow: unset;
+                        color: #fff;
+                        margin-top: -6px;
+                        margin-left: -3px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.pagination {
+
+    .page-item {
+
+        &.previous,
+        &.next {
+
+            &.disabled {
+                .page-link {
+                    color: #A0A0A0;
+
+                    &:focus,
+                    &:hover,
+                    &:active {
+                        color: #A0A0A0;
+                        background-color: transparent;
+                        border: none;
+                        box-shadow: none;
+                    }
+                }
+            }
+
+            .page-link {
+                border: none;
+                color: #EE6E73;
+
+                &:focus,
+                &:hover,
+                &:active {
+                    color: #EE6E73;
+                    border: none;
+                    background-color: transparent;
+                    box-shadow: none;
+                }
+            }
+        }
+
+        &.active {
+            .page-link {
+                color: #fff;
+                background-color: #EE6E73;
+                width: 22px;
+                height: 22px;
+                text-align: center;
+                border-radius: 50%;
+
+                &:focus,
+                &:hover,
+                &:active {
+                    background-color: #EE6E73;
+                    color: #fff;
+                    border: none;
+                    box-shadow: none;
+                }
+            }
+        }
+
+        .page-link {
+            font-size: 1.4rem;
+            line-height: 0.8;
+            color: #A0A0A0;
+            border: none;
+            margin: 0 3px;
+
+            &:focus,
+            &:hover,
+            &:active {
+                color: #A0A0A0;
+                background-color: transparent;
+                border: none;
+                box-shadow: none;
+            }
+        }
+    }
+}
+
+.dataTables_info {
+    font-size: 1.4rem;
+    color: #A0A0A0;
+}

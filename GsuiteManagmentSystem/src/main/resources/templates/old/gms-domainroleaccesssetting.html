@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<!--
+Template Name: Materialize - Material Design Admin Template
+Author: PixInvent
+Website: http://www.pixinvent.com/
+Contact: hello@pixinvent.com
+Follow: www.twitter.com/pixinvents
+Like: www.facebook.com/pixinvents
+Purchase: https://1.envato.market/materialize_admin
+Renew Support: https://1.envato.market/materialize_admin
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+
+-->
+<html class="loading" lang="en" data-textdirection="ltr">
+<!-- BEGIN: Head-->
+
+<!-- Mirrored from pixinvent.com/materialize-material-design-admin-template/html/ltr/vertical-modern-menu-template/form-elements.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Sep 2019 06:15:57 GMT -->
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+<meta name="description"
+	content="Materialize is a Material Design Admin Template,It's modern, responsive and based on Material Design by Google.">
+<meta name="keywords"
+	content="materialize, admin template, dashboard template, flat admin template, responsive admin template, eCommerce dashboard, analytic dashboard">
+<meta name="author" content="ThemeSelect">
+<meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}" />
+
+<title>GMS</title>
+
+
+
+<link rel="apple-touch-icon"
+	href="/app-assets/images/favicon/apple-touch-icon-152x152.png">
+<link rel="shortcut icon" type="image/x-icon"
+	href="/app-assets/images/favicon/favicon-32x32.png">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<!-- BEGIN: VENDOR CSS-->
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/vendors/vendors.min.css">
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/vendors/flag-icon/css/flag-icon.min.css">
+<link rel="stylesheet"
+	href="/app-assets/vendors/noUiSlider/nouislider.min.css"
+	type="text/css">
+<!-- END: VENDOR CSS-->
+<link rel="stylesheet" type="text/css"
+	href="./app-assets/vendors/sweetalert/sweetalert.css">
+<!-- BEGIN: Page Level CSS-->
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/css/themes/vertical-modern-menu-template/materialize.css">
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/css/themes/vertical-modern-menu-template/style.css">
+<!-- END: Page Level CSS-->
+
+</head>
+<!-- END: Head-->
+
+<body
+	class="vertical-layout vertical-menu-collapsible page-header-dark vertical-modern-menu 2-columns  "
+	data-open="click" data-menu="vertical-modern-menu" data-col="2-columns" th:object="${authUser}">
+
+<!-- 	<!-- BEGIN: Header-->
+	<th:block th:utext="${header}"></th:block>
+	<!--  END: Header -->
+
+	<!-- BEGIN: SideNav -->
+	<th:block th:utext="${sidenaveMenu}"></th:block>
+	<!-- END: SideNav -->
+
+
+	<!-- BEGIN: Page Main-->
+	<div id="main">
+		<div class="row">
+			<div class="container">
+				<div class="col s12">
+					<div id="progress" style="display: none;">
+						<div class="progress">
+							<div class="indeterminate"></div>
+						</div>
+					</div>
+					<div id="alerts"></div>
+					<div class="card-alert card green right" id="onsuccess"
+						style="display: none; width: 40%;">
+						<div class="card-content white-text">
+							<span class="card-title white-text darken-1"> <i
+								class="material-icons">notifications</i>Role & Access Setting
+							</span>
+							<div id="message"></div>
+						</div>
+						<button type="button" class="close white-text"
+							data-dismiss="alert" aria-label="Close" id="cancel">
+							<span aria-hidden="true">×</span>
+						</button>
+					</div>
+				</div>
+				<div class="col s12">
+					<input type="text" id="selectedRoleId" th:value="${RoleId}"
+						style="display: none;" /> <br>
+					<!-- Input Fields -->
+					<div class="row">
+						<div class="col s12">
+							<div class="card-content">
+								<div class="row" style="background-color: white;">
+									<div class="col s12 card"
+										style="height: 70px; background-color: white;">
+										<center>
+											<h6 th:inline="text">[[${title}]] ROLE AND WORKFLOW
+												SETTINGS</h6>
+										</center>
+									</div>
+
+									<div class="col s6">
+										<form class="row"
+											style="margin: 2px; background-color: white;">
+
+											<div class="col s12">
+												<p>MAKERS ACCESS</p>
+											</div>
+
+											<div class="col s12">
+												<select id="domainaccountmaker">
+													<option value="0" disabled selected>Accounts</option>
+													<option th:each="User : ${domainUsers}"
+														th:value="${User.getId()}" th:inline="text">[[${User.getPrimaryEmail()}]]</option>
+												</select>
+												<button id="allowAccess"
+													class="btn gradient-45deg-blue-indigo right"
+													style="width: 50%;" type="button">
+													<span>SUBMIT</span>
+												</button>
+											</div>
+
+											<div class=" col s12">
+												<br>
+											</div>
+
+											<div class=" col s12">
+												<div class="card">
+													<div class="col s6">
+														<p style="margin: 0px; padding: 0px;">ACCOUNT ACCESS</p>
+													</div>
+													<div class="col s6">
+														<p class="right" style="margin: 0px; padding: 0px;">ACTIVATE</p>
+													</div>
+													<div class="col s12">
+														<ul id="results" th:each="UserRole : ${roleAccess}"
+															style="margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px;">
+															<li
+																style="margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px;">
+																<div class="col s7"
+																	style="margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px;">
+																	<p
+																		style="margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px;"
+																		th:inline="text">[[${UserRole.getUserApp().getEmail()}]]</p>
+																</div>
+																<div class="col s5"
+																	style="margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px;">
+																	<p class="right"
+																		style="margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px;">
+																		<a type="text"
+																			th:href="@{/RevockRoleAccess/} + ${UserRole.getId()}+@{/}+${RoleId}">Revock
+																			Access</a>
+																	</p>
+																</div>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</form>
+									</div>
+
+									<div class="col s6">
+										<form class="row"
+											style="margin: 2px; background-color: white;">
+											<div class="col s12">
+												<p>APPROVERS(CHECKERS) SETTING</p>
+											</div>
+											<div class="col s12">
+												<select id="checkergmsaccounts">
+													<option value="0" disabled selected>Accounts</option>
+													<option th:each="UserApp : ${potentialCheckers}"
+														th:value="${UserApp.getId()}" th:inline="text">[[${UserApp.getEmail()}]]</option>
+												</select>
+												<button id="updateChecker"
+													class="btn gradient-45deg-blue-indigo right"
+													style="width: 50%;" type="button">
+													<span>UPDATE CHECKER</span>
+												</button>
+											</div>
+
+											<div class=" col s12">
+												<br>
+											</div>
+
+											<div class="col s12">
+												<div class="card">
+													<div class="col s6">
+														<p style="margin: 0px; padding: 0px;">CURRENT APPROVER</p>
+													</div>
+													<div class="col s6">
+														<p class="right" style="margin: 0px; padding: 0px;">ACTIVATE</p>
+													</div>
+													<div class="col s12">
+														<ul id="results" th:each="Checker : ${checker}"
+															style="margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px;">
+															<li
+																style="margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px;">
+																<div class="col s6"
+																	style="margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px;">
+																	<p
+																		style="margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px;"
+																		th:inline="text">[[${Checker.getChecker().getEmail()}]]</p>
+																</div>
+																<div class="col s6"
+																	style="margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px;">
+																	<p class="right"
+																		style="margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px;">
+																		<label
+																			style="margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px;">
+																			<input type="checkbox" id="isActive"
+																			th:checked="${isActive}" /><span></span>
+																		</label>
+																	</p>
+																</div>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- END: Page Main-->
+
+	<script src="/app-assets/js/custom/update_usermanagemnt.js"
+		type="text/javascript"></script>
+
+	<!-- BEGIN VENDOR JS-->
+	<script src="/app-assets/js/vendors.min.js" type="text/javascript"></script>
+	<!-- BEGIN VENDOR JS-->
+	<!-- BEGIN PAGE VENDOR JS-->
+	<script src="/app-assets/vendors/noUiSlider/nouislider.js"
+		type="text/javascript"></script>
+	<!-- END PAGE VENDOR JS-->
+	<!-- BEGIN THEME  JS-->
+	<script src="/app-assets/js/plugins.js" type="text/javascript"></script>
+	<script src="/app-assets/js/custom/custom-script.js"
+		type="text/javascript"></script>
+	<script src="/app-assets/js/scripts/customizer.js"
+		type="text/javascript"></script>
+	<!-- END THEME  JS-->
+	<script src="/app-assets/vendors/sweetalert/sweetalert.min.js"></script>
+	<script src="/app-assets/js/scripts/ui-alerts.js"
+		type="text/javascript"></script>
+
+	<!-- BEGIN PAGE LEVEL JS-->
+	<script src="/app-assets/js/scripts/gms-domainroleaccesssetting.js"
+		type="text/javascript"></script>
+	<!-- END PAGE LEVEL JS-->
+</body>
+
+<!-- Mirrored from pixinvent.com/materialize-material-design-admin-template/html/ltr/vertical-modern-menu-template/form-elements.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Sep 2019 06:15:58 GMT -->
+
+</html>

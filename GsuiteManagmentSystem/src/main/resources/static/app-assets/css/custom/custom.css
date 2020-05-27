@@ -1,0 +1,264 @@
+/*================================================================================
+	Item Name: Materialize - Material Design Admin Template
+	Version: 5.0
+	Author: PIXINVENT
+	Author URL: https://themeforest.net/user/pixinvent/portfolio
+================================================================================
+
+NOTE:
+------
+PLACE HERE YOUR OWN CSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
+WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+
+
+.editor_div p {
+    margin: 0px;
+    padding: 0px;
+}
+
+.fa {
+    padding: 10px;
+    font-size: 55px;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+    opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-google {
+    background: #4285F4;
+    color: white;
+}
+
+/* Twitter */
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+
+/* Twitter */
+.icons_themecolor {
+    color: #000;
+}
+
+.select-checkbox {
+    color: purple;
+}
+
+
+.themecolor {
+    background-color: purple;
+    color: white;
+}
+
+.headerthemecolor {
+    background-color: purple;
+    color: white;
+}
+
+.dasboard-header .nav {
+    background: #ffffff;
+}
+
+#header .nav .nav-wrapper .material-icons {
+    color: black;
+}
+
+#header .nav .navbar-list {
+    background: #ceb0d6;
+    height: 100vh;
+    width: 25vh;
+    display: none;
+    flex-direction: column;
+}
+
+#header .nav .navbar-list .notification {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px;
+}
+
+#header .nav .navbar-list .notification i.close {
+    color: #ffffff;
+    padding: 2px;
+    background-color: #EE6E73;
+    font-size: 24px;
+    border-radius: 50%;
+    height: 30px;
+    line-height: 1;
+}
+
+#header .nav .navbar-list .profile {
+    align-self: center;
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+@media (max-width: 1199.98px) {
+    #header .nav .navbar-list .profile {
+        padding: 0 2rem;
+    }
+}
+
+#header .nav .navbar-list .profile .name {
+    font-size: 28px;
+    margin: 0;
+    padding-top: .5rem;
+}
+
+#header .nav .navbar-list .profile .email {
+    color: #000000;
+    font-size: 16px;
+}
+
+#header .nav .navbar-list .profile .button {
+    margin: 0;
+    color: #EE6E73;
+    border: 1px solid #EE6E73;
+    border-radius: 5px;
+    padding: .1rem 1.5rem;
+}
+
+#header .nav .navbar-list .profile .user {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 5rem;
+}
+
+#header .nav .navbar-list .profile .user .title {
+    font-size: 22px;
+}
+
+#header .nav .navbar-list .profile .user .list {
+    display: flex;
+}
+
+#header .nav .navbar-list .profile .user .list .material-icons {
+    padding-right: .5rem;
+    color: green;
+}
+
+#header .nav .navbar-list .profile .user .list .content p {
+    margin: 0;
+}
+
+#header .nav .navbar-list .profile .user .list .text {
+    color: #000000;
+    font-size: 16px;
+}
+
+#header .nav .navbar-list .profile .user .list .time {
+    color: #868686;
+    font-size: 12px;
+    margin-top: -2.5rem;
+}
+
+#header .navbar {
+    height: 100px;
+}
+
+#header .navbar .nav {
+    height: 100px;
+}
+
+#sidenav li {
+    padding: .5rem 0;
+}
+
+#sidenav li:hover {
+    background: white;
+    /*   border-bottom-left-radius: 30px;
+    border-top-left-radius: 30px;; */
+}
+
+#sidenav li:hover i.material-icons {
+    color: black;
+}
+
+#sidenav li:hover .menu-title {
+    color: black;
+}
+
+#sidenav li:hover a {
+    color: black;
+    background: white;
+}
+
+#sidenav li:hover a i.material-icons span {
+    color: black;
+}
+
+#main {
+    background: #F7F7F7;
+}
+
+/* DashBoard grid */
+#main .section {
+    margin-right: 19rem;
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+/* DashBoard grid */
+@media (max-width: 1500px) {
+    #main .section {
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 1rem;
+    }
+}
+
+
+@media (max-width: 1300px) {
+    #main .section {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 1fr;
+        grid-gap: 2rem;
+    }
+}
+
+/*End of DashBoard grid */
+
+
+#main .section .card {}
+
+#main .section .card p {}
+
+#main .section .card p b {
+    font-size: 20px;
+}
+
+#main .section .card:hover {
+    background: #EE6E73;
+}
+
+#main .section .card a {
+    padding-right: 1rem;
+}
+
+#main .section .card:hover .icons_themecolor {
+    color: #ffffff;
+}
+
+#main .section .card:hover p {
+    color: #ffffff;
+}
+
+#selected_list p {
+    display: inline;
+}
+
+#selected_list_rmv p {
+    display: inline;
+}

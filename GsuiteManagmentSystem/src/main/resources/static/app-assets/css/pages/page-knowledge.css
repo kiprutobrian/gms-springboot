@@ -1,0 +1,284 @@
+
+.bg-image{
+	background-image: url('../../images/gallery/landing.png');
+	 background-position: center center;
+    -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	  height: 100vh;
+      width: 100vw;
+	
+}
+
+.landing-page .container{
+	 max-width: 80% !important;
+}
+/*----------------------------------------
+    Header
+------------------------------------------*/
+#header {
+	padding: 2.5rem;
+
+}
+#header .brand-logo:hover{
+	cursor:pointer;
+}
+#header .header-bg{
+	clip-path: circle(38% at 100% 1%);
+	background: #9107A0;
+	position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 38rem;
+}
+
+
+
+
+
+@media (max-width: 1600px) { 
+   #header .header-bg{
+	clip-path: circle(44% at 100% 1%);
+  }
+}
+
+
+
+
+@media (max-width: 1400px) { 
+   #header .header-bg{
+	clip-path: circle(47% at 100% 1%);
+  }
+}
+
+
+
+@media (max-width: 1300px) { 
+   #header .header-bg{
+	clip-path: circle(50% at 100% 1%);
+  }
+}
+
+#header .logo{
+	position: absolute;
+	top: 12rem;
+    right: 8rem;
+    width: 160px;
+}
+#header .header-nav{
+	position: relative;
+    z-index: 100;
+}
+
+#header .header-nav .right{
+	display: flex;
+
+}
+
+#header .header-nav .right li:first-child{
+	margin-right:2rem;	 
+}
+#header .header-nav .right li{
+	padding: .8rem 1.2rem;
+}
+
+#header .header-nav .right li:hover{
+	border: 1px solid #FFFFFF;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#header .header-nav .right li a{
+	color: #FFFFFF;
+	text-decoration: none;
+	font-family: Avenir;
+	font-size: 1.2rem;
+	padding: .5rem 1.3rem;
+}
+
+
+
+/*----------------------------------------
+    Page knowledge
+------------------------------------------*/
+#knowledge .knowledge-content .manage {
+	margin-bottom: 8rem;
+	margin-top: 10rem;
+}
+
+#knowledge .knowledge-content .search{
+	
+}
+
+#knowledge .knowledge-content .search .title {
+	font-family: Avenir;
+	font-size: 3rem;
+	color: #333333;
+	white-space: nowrap;
+	padding-bottom: 1rem;
+    border-bottom-color: #9107A0;
+    border-width: 1.5rem;
+    border-bottom-style: dashed;
+}
+
+#knowledge .knowledge-content .search .text{
+	font-family: Avenir;
+	font-size: 1.3rem;
+	color: #333333;
+	white-space: nowrap;
+}
+
+/*----------------------------------------
+    Page knowledge old code
+------------------------------------------*/
+
+
+#knowledge .knowledge-content .card-hover :hover i
+{
+    padding-left: .5rem;
+
+    -webkit-transition: .3s ease-in-out;
+       -moz-transition: .3s ease-in-out;
+         -o-transition: .3s ease-in-out;
+            transition: .3s ease-in-out; 
+
+    text-shadow: 2px 2px 6px #b0bec5;
+}
+
+#knowledge .knowledge-content .cards i
+{
+    font-size: 3rem;
+
+    -webkit-transition: .3s ease-in-out;
+       -moz-transition: .3s ease-in-out;
+         -o-transition: .3s ease-in-out;
+            transition: .3s ease-in-out;
+}
+
+#knowledge .knowledge-content .card-content-link p a
+{
+    color: #000;
+}
+
+#knowledge .knowledge-content .card-content-link p :hover
+{
+    text-decoration: underline;
+}
+
+
+
+#knowledge .text-shadow
+{
+    text-shadow: 4px 4px 3px #ee462e30 !important;
+}
+
+#knowledge .search-box
+{
+    width: 95%; 
+    padding-left: 1rem;
+
+    border-radius: 3rem;
+    -webkit-box-shadow: 0 16px 24px 2px rgba(0, 0, 0, .14), 0 6px 30px 5px rgba(0, 0, 0, .12), 0 8px 10px -7px rgba(0, 0, 0, .2);
+            box-shadow: 0 16px 24px 2px rgba(0, 0, 0, .14), 0 6px 30px 5px rgba(0, 0, 0, .12), 0 8px 10px -7px rgba(0, 0, 0, .2);
+}
+
+
+
+#knowledge .background-transparent
+{
+    background-color: transparent !important;
+}
+
+#knowledge .card-hover :hover
+{
+    background-color: #ea80fc;
+}
+
+
+/*----------------------------------------
+    Page knowledge cards
+------------------------------------------*/
+#knowledge .cards{
+	background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 0px 10px #50505029;
+    border-radius: 13px;
+    padding: 2rem 3rem;
+    max-width: 335px;
+    height: 250px;
+}
+#knowledge .cards .icons {
+	display: flex;
+    justify-content: space-between;
+}
+
+#knowledge .cards:hover {
+	background: #ec86f7;
+}
+
+#knowledge .cards .material-icons{
+	    color: #9107A0;
+	    
+}
+
+#knowledge .cards .title {
+	    white-space: nowrap;
+}
+
+/*----------------------------------------
+    Page knowledge Licensing
+------------------------------------------*/
+.page-header-dark #knowledge-licensing .sidebar-title h4,
+.page-header-dark #knowledge-licensing .sidebar-title h6,
+.page-header-dark #knowledge-licensing-detail .sidebar-title h4,
+.page-header-dark #knowledge-licensing-detail .sidebar-title h6
+{
+    margin-top: .3rem; 
+
+    color: #fff;
+}
+
+#knowledge-licensing .licenses p a
+{
+    color: #000;
+}
+
+#knowledge-licensing .licenses p :hover
+{
+    text-decoration: underline !important;
+}
+
+#knowledge-licensing .licenses i
+{
+    margin-right: .5rem; 
+
+    vertical-align: bottom;
+}
+
+@media only screen and (max-width: 1024px)
+{
+    #knowledge-licensing .licenses .card-width
+    {
+        width: 100%;
+    }
+}
+
+/*----------------------------------------
+    Page knowledge Licensing Detail
+------------------------------------------*/
+#knowledge-licensing-detail .licenses-link .licenses-list
+{
+    cursor: pointer;
+}
+#knowledge-licensing-detail .licenses-link .licenses-list li
+{
+    padding: .5rem 1.5rem .5rem 1.5rem;
+}
+#knowledge-licensing-detail .licenses-link .licenses-list .active
+{
+    padding: .5rem 1.5rem .5rem 1.5rem;
+
+    color: white; 
+    border-radius: .4rem;
+    background-color: #ab47bc;
+}

@@ -1,0 +1,26 @@
+.nav-icon {
+    width: 25px;
+    cursor: pointer;
+
+    div {
+        position: relative;
+        width: 100%;
+    }
+
+    div,
+    &:after,
+    &:before {
+        content: "";
+        background: $white;
+        border-radius: 3px;
+        height: 1px;
+        display: block;
+        margin: 6px 0;
+        transition: all 0.2s ease-in-out;
+    }
+    &:after,
+    &:before {
+        width: 70%;
+        right: 50%;
+    }
+}

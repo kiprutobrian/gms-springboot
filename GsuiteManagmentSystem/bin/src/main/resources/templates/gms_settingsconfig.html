@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<!--
+Template Name: Materialize - Material Design Admin Template
+Author: PixInvent
+Website: http://www.pixinvent.com/
+Contact: hello@pixinvent.com
+Follow: www.twitter.com/pixinvents
+Like: www.facebook.com/pixinvents
+Purchase: https://1.envato.market/materialize_admin
+Renew Support: https://1.envato.market/materialize_admin
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+
+-->
+<html class="loading" lang="en" data-textdirection="ltr">
+<!-- BEGIN: Head-->
+
+<!-- Mirrored from pixinvent.com/materialize-material-design-admin-template/html/ltr/vertical-modern-menu-template/table-data-table.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Sep 2019 06:15:56 GMT -->
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+<meta name="description"
+	content="Materialize is a Material Design Admin Template,It's modern, responsive and based on Material Design by Google.">
+<meta name="keywords"
+	content="materialize, admin template, dashboard template, flat admin template, responsive admin template, eCommerce dashboard, analytic dashboard">
+<meta name="author" content="ThemeSelect">
+<meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}" />
+
+<title>GMS</title>
+<link rel="apple-touch-icon"
+	href="/app-assets/images/favicon/apple-touch-icon-152x152.png">
+<link rel="shortcut icon" type="image/x-icon"
+	href="/app-assets/images/favicon/favicon-32x32.png">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<!-- BEGIN: VENDOR CSS-->
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/vendors/vendors.min.css">
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/vendors/flag-icon/css/flag-icon.min.css">
+
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/vendors/data-tables/extensions/responsive/css/responsive.dataTables.min.css">
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/vendors/data-tables/css/select.dataTables.min.css">
+<!-- END: VENDOR CSS-->
+<link rel="stylesheet" type="text/css"
+	href="./app-assets/vendors/sweetalert/sweetalert.css">
+<!-- BEGIN: Page Level CSS-->
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/css/themes/vertical-modern-menu-template/materialize.css">
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/css/themes/vertical-modern-menu-template/style.css">
+
+<!-- END: Page Level CSS-->
+<!-- BEGIN: Custom CSS-->
+<link rel="stylesheet" type="text/css"
+	href="/app-assets/css/custom/custom.css">
+<!-- END: Custom CSS-->
+
+<style type="text/css">
+#products_table_filter input {
+	width: 25%;
+	margin-bottom: 0px;
+	margin-left: 5px;
+}
+
+#products_table tr td {
+	height: 8px;
+	padding: 5px;
+	margin: 5px;
+}
+
+#portalusers_previous a {
+	background-color: black;
+}
+
+#portalusers_next a {
+	background-color: red;
+}
+</style>
+
+</head>
+<!-- END: Head-->
+
+<body
+	class="vertical-layout vertical-menu-collapsible page-header-dark vertical-modern-menu 2-columns  "
+	data-open="click" data-menu="vertical-modern-menu" data-col="2-columns"
+	th:object="${authUser}">
+
+	<!-- 	<!-- BEGIN: Header-->
+	<th:block th:utext="${header}"></th:block>
+	<!--  END: Header -->
+
+	<!-- BEGIN: SideNav -->
+	<th:block th:utext="${sidenaveMenu}"></th:block>
+	<!-- END: SideNav -->
+
+
+
+
+	<!-- BEGIN: Page Main-->
+	<div id="main">
+		<div class="row">
+			<div class="container">
+
+				<div id="progress" style="display: none;">
+					<div class="progress">
+						<div class="indeterminate"></div>
+					</div>
+				</div>
+				<div id="alerts"></div>
+				<div class="card-alert card green right" id="onsuccess"
+					style="display: none; width: 40%;">
+					<div class="card-content white-text">
+						<span class="card-title white-text darken-1"> <i
+							class="material-icons">notifications</i>GMS Accounts
+						</span>
+						<div id="message"></div>
+					</div>
+					<button type="button" class="close white-text" data-dismiss="alert"
+						aria-label="Close" id="cancel">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div>
+
+					<div class="col s12 right">
+						<input type="text" th:value="${authUser.email}" id="authUserId"
+							style="display: none;">
+					</div>
+
+					<div class="col s12" style="background-color: white;">
+						<div style="background-color: white;">
+							<div style="width: 100%;">
+								<table id="roleslist" style="width: 100%;">
+									<thead>
+										<tr>
+											<th style="display: none;" class="col s4">ID</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr class="col s4"
+											th:each="DataLossPreventionReportType : ${dataLossPreventionReportType}">
+											<td class="col s12">
+												<div class="m-0 card">
+													<div class="card-content">
+														<span class="mb-0 card-title"
+															th:text="${DataLossPreventionReportType.getName()}"></span>
+														<p class="mt-0"
+															th:text="${DataLossPreventionReportType.getDescription()}"></p>
+													</div>
+													<div class="card-action ">
+														<a
+															th:href="@{#/} + ${DataLossPreventionReportType.getId()}+@{/}+${authUser.getCompany().getCompanyId()}"
+															class="settinglink btn-flat text-accent-1 ">Access
+															Setting</a>
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr class="col s4">
+											<td class="col s12">
+												<div class="m-0 card">
+													<div class="card-content">
+														<span class="mb-0 card-title">OnBoarding &
+															OffBoarding of Account </span>
+														<p class="mt-0">Account to which mail & drive will
+															migrated to during off boarding of users in the
+															organization</p>
+													</div>
+													<div class="card-action ">
+														<a
+															th:href="@{#/BackUpSetting} +@{/}+${authUser.getCompany().getCompanyId()}"
+															class="setting_backup_link btn-flat text-accent-1 ">Access
+															Setting</a>
+													</div>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="setting_migration_modal" class="modal ">
+		<div class="modal-content">
+			<div class="row">
+				<div class="col s12">
+					<div class="m-0 col s8">
+						<p class="m-0">Data Migration Account Setting</p>
+					</div>
+				</div>
+				<div class="col s12">
+					<div class="row">
+						<div class="input-field col s12">
+							<p class="">BackUp Account</p>
+						</div>
+						<div class="input-field col s12">
+							<input id="backupaccount_value" value=" " type="text"> <label
+								for="backupaccount_value" id="key_lable">Organization
+								Backup/Archive Account</label>
+							<div id="backupaccountalert" style="color: red;"></div>
+						</div>
+						<div class="input-field col s4">
+							<p>
+								<label> <input type="checkbox" class="filled-in"
+									id="migration_account_state" /> <span>Active</span>
+								</label>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<a id="update_setting_migration_btn"
+				class="modal-action  waves-effect waves-green btn-flat">Update
+				Migration Setting</a>
+		</div>
+	</div>
+
+	<div id="setting_modal" class="modal ">
+		<div class="modal-content">
+			<div class="row">
+				<div class="col s12">
+					<div class="m-0 col s8">
+						<p class="m-0">SETTINGS</p>
+					</div>
+					<div class="m-0 col s4 right">
+						<p class="m-0 ">Report Enabled</p>
+						<div class="m-0 switch right">
+							<label> Off <input type="checkbox" id="report_state">
+								<span class="lever"></span> On
+							</label>
+						</div>
+
+					</div>
+				</div>
+				<div class="col s7">
+					<div class="row m-0">
+						<p class="m-0">Report Information Setting</p>
+						<div class=" input-field col s12">
+							<input id="key_value" value=" " type="text"> <label
+								id="key_lable" for="key_value" > ID</label>
+							<div id="productnamealert" style="color: red;"></div>
+						</div>
+						<div class="mb-0 input-field col s12">
+							<input id="address_value" value=" " type="text"> <label
+								for="address_value" id="address_lable">Organization
+								Address To Recieve Report </label>
+							<div id="addressalert" style="color: red;"></div>
+						</div>
+						<div id="driveoption" class="mt-0 col s12">
+							<select class="browser-default" id="drive_filter_option"><option
+									value="download">Drive DLP type</option>
+								<option value="download">Download</option>
+								<option value="view">View</option>
+								<option value="edit">Edit</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="col s5">
+					<p class="m-0">Report Delivery Frequency</p>
+					<p>
+						<label> <input type="checkbox" class="filled-in"
+							id="sheduled_daily" /> <span>Daily</span>
+						</label>
+					</p>
+					<p>
+						<label> <input type="checkbox" class="filled-in"
+							id="sheduled_weekly" /> <span>Weekly</span>
+						</label>
+					</p>
+					<p>
+						<label> <input type="checkbox" class="filled-in"
+							id="sheduled_monthly" /> <span>Monthly</span>
+						</label>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<a id="update_setting_btn"
+				class="modal-action  waves-effect waves-green btn-flat"> Update</a>
+		</div>
+	</div>
+
+
+
+
+	<!-- END: Page Main-->
+
+
+	<!--************************************************************** JS FILES******************************************************************************** -->
+
+	<!-- BEGIN VENDOR JS-->
+	<script src="/app-assets/js/vendors.min.js" type="text/javascript"></script>
+	<!-- BEGIN VENDOR JS-->
+	<!-- BEGIN PAGE VENDOR JS-->
+	<script
+		src="/app-assets/vendors/data-tables/js/jquery.dataTables.min.js"
+		type="text/javascript"></script>
+	<script
+		src="/app-assets/vendors/data-tables/extensions/responsive/js/dataTables.responsive.min.js"
+		type="text/javascript"></script>
+	<script
+		src="/app-assets/vendors/data-tables/js/dataTables.select.min.js"
+		type="text/javascript"></script>
+
+
+	<!-- END PAGE VENDOR JS-->
+	<!-- BEGIN THEME  JS-->
+	<script src="/app-assets/js/plugins.js" type="text/javascript"></script>
+	<script src="/app-assets/js/custom/custom-script.js"
+		type="text/javascript"></script>
+	<script src="/app-assets/js/scripts/customizer.js"
+		type="text/javascript"></script>
+	<!-- END THEME  JS-->
+	<script src="/app-assets/vendors/sweetalert/sweetalert.min.js"></script>
+	<script src="/app-assets/js/scripts/ui-alerts.js"
+		type="text/javascript"></script>
+
+	<!-- BEGIN PAGE LEVEL JS-->
+	<script src="/app-assets/js/scripts/setting/settings_static.js"
+		type="text/javascript"></script>
+	<script src="/app-assets/js/scripts/setting/settings.js"
+		type="text/javascript"></script>
+	<script src="/app-assets/js/scripts/setting/settings_migration.js"
+		type="text/javascript"></script>
+
+
+	<!-- END PAGE LEVEL JS-->
+</body>
+
+<!-- Mirrored from pixinvent.com/materialize-material-design-admin-template/html/ltr/vertical-modern-menu-template/table-data-table.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Sep 2019 06:15:57 GMT -->
+
+</html>

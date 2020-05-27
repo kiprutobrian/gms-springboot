@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html class="loading" lang="en" data-textdirection="ltr">
+
+    <body>
+        <nav class="sidebar d-none d-md-block px-0 collapse"
+            th:fragment="leftnav" id="navbarNav">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column flex-nowrap accordion"
+                    id="accordionExample">
+                    <div class="sidebar-header">
+                        <div class="sidebar-brand">
+                            <a class="mr-auto logo" href="/DashBoard">
+                                <img class="dashboard-logo"
+                                    src="/app-assets/images/logo/cloud-logo-white.png"
+                                    alt="dashboard-logo">
+                            </a>
+                            <div class="navbar-toggler" type="button"
+                                data-toggle="collapse" data-target="#navbarNav"
+                                aria-controls="navbarNav" aria-expanded="false"
+                                aria-label="Main menu">
+                                <div class="nav-icon">
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center act"
+                            href="/DashBoard">
+                            <i class="material-icons mr-sm">dashboard</i>
+                            DashBoard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="linkOne" class="nav-link d-flex
+                            align-items-center act" type="button"
+                            data-toggle="collapse"
+                            data-target="#UserManagement"
+                            aria-controls="UserManagement" aria-expanded="false"
+                            aria-label="User Management">
+                            <i class="material-icons mr-sm">person_outline</i>
+                            User Management
+                            <span class="material-icons ml-auto rotate">
+                                keyboard_arrow_right
+                            </span>
+                        </a>
+                        <div class="sub-group collapse" id="UserManagement"
+                            aria-labelledby="linkOne"
+                            data-parent="#accordionExample">
+                            <ul class="flex-column pl-2 nav">
+                                <li class="nav-item">
+                                    <a class="nav-link d-flex
+                                        align-items-center"
+                                        href="/usermanagment">
+                                        Users Account
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link d-flex
+                                        align-items-center" href="/createUser">
+                                        New Account
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center act"
+                            href="/SignatureSetting">
+                            <span class="material-icons mr-sm">fingerprint</span>
+                            Signature
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center act"
+                            href="/MarketingSetting">
+                            <span class="material-icons mr-sm"> business_center
+                            </span> Marketing & Advertising
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center act"
+                            href="/calendersettings">
+                            <span class="material-icons mr-sm">
+                                event
+                            </span>
+                            Calendar Appointments
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center act"
+                            href="/MailMetrix">
+                            <i class="material-icons mr-sm">mail_outline</i>
+                            Mail Metrix
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center act"
+                            href="/Delegation">
+                            <i class="material-icons mr-sm">share</i>
+                            Delegation
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="linkTwo" class="nav-link d-flex
+                            align-items-center act" type="button"
+                            data-toggle="collapse"
+                            data-target="#folder_open"
+                            aria-controls="folder_open" aria-expanded="false"
+                            aria-label="Drive File">
+                            <i class="material-icons mr-sm">folder_open</i>
+                            Drive File & Folders
+                            <span class="material-icons ml-auto rotate">
+                                keyboard_arrow_right
+                            </span>
+                        </a>
+                        <div class="sub-group collapse" id="folder_open"
+                            aria-labelledby="linkTwo"
+                            data-parent="#accordionExample">
+                            <ul class="flex-column pl-2 nav">
+                                <li class="nav-item">
+                                    <a class="nav-link d-flex
+                                        align-items-center"
+                                        href="/DriveAnalysis">
+                                        Account Drive
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link d-flex
+                                        align-items-center" href="#">
+                                        Domain Files
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a id="linkThree" class="nav-link d-flex
+                            align-items-center act" type="button"
+                            data-toggle="collapse" data-target="#data_usage"
+                            aria-controls="data_usage"
+                            aria-expanded="false" aria-label="Drive File">
+                            <i class="material-icons mr-sm">data_usage</i>
+                            Data Migration
+                            <span class="material-icons ml-auto rotate">
+                                keyboard_arrow_right
+                            </span>
+                        </a>
+                        <div class="sub-group collapse" id="data_usage"
+                            aria-labelledby="linkThree"
+                            data-parent="#accordionExample">
+                            <ul class="flex-column pl-2 nav">
+                                <li class="nav-item">
+                                    <a class="nav-link d-flex
+                                        align-items-center"
+                                        href="/DataMigration/BackMailBox">
+                                        BackUp MailBox
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link d-flex
+                                        align-items-center"
+                                        href="/DataMigration/RestorMailBox">
+                                        Restore MailBox
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a id="linkFour" class="nav-link d-flex
+                            align-items-center act" type="button"
+                            data-toggle="collapse" data-target="#description"
+                            aria-controls="description"
+                            aria-expanded="false" aria-label="DLP Reporting">
+                            <i class="material-icons mr-sm">description</i>
+                            DLP Reporting
+                            <span class="material-icons ml-auto rotate">
+                                keyboard_arrow_right
+                            </span>
+                        </a>
+                        <div class="sub-group collapse" id="description"
+                            aria-labelledby="linkFour"
+                            data-parent="#accordionExample">
+                            <ul class="flex-column pl-2 nav">
+                                <li class="nav-item">
+                                    <a class="nav-link d-flex
+                                        align-items-center" href="/EmailReport">
+                                        G-mail
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link d-flex
+                                        align-items-center" href="/DriveReport">
+                                        Drive
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a id="linkFive" class="nav-link d-flex
+                            align-items-center act" type="button"
+                            data-toggle="collapse" data-target="#settings"
+                            aria-controls="settings" aria-expanded="false"
+                            aria-label="DLP Reporting">
+                            <i class="material-icons mr-sm">settings</i>
+                            Setting
+                            <span class="material-icons ml-auto rotate">
+                                keyboard_arrow_right
+                            </span>
+                        </a>
+
+                        <div class="sub-group collapse" id="settings"
+                            aria-labelledby="linkFive"
+                            data-parent="#accordionExample">
+                            <ul class="flex-column pl-2 nav">
+                                <li class="nav-item">
+                                    <a class="nav-link d-flex
+                                        align-items-center" href="/GMSSetting">
+                                        GMS Accounts
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link d-flex
+                                        align-items-center"
+                                        href="/AdminControl">
+                                        Security Access
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link d-flex
+                                        align-items-center" href="/Settings">
+                                        Configeration Setting
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link d-flex
+                                        align-items-center" href="#">
+                                        SetUp Settings Form
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center act"
+                            href="#">
+                            <i class="material-icons mr-sm">bug_report</i>
+                            Reports & Logs
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center act"
+                            href="https://clouditservice.freshdesk.com/support/home"
+                            target="_blank">
+                            <i class="material-icons mr-sm">help_outline</i>
+                            Help & Support
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav nav-bottom flex-column flex-nowrap">
+
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center"
+                            href="/logout">
+                            <i class="material-icons mr-sm">keyboard_tab</i>
+                            Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </body>
+
+</html>
