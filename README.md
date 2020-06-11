@@ -1,7 +1,7 @@
 Licensed under MIT Opensource Initiative license.
 
 # gms-springboot
-## MIT License
+## License
 
 Copyright (c) 2020 BRIAN KIPRUTO
 
